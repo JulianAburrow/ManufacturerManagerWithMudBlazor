@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34031.279
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{96505874-D2EC-40C6-B1D3-54E4C9715FC8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5A78E1B9-022C-4B66-97DC-EDB54089898A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DbScripts", "DbScripts", "{FCDA6F46-C594-4587-A33D-5F5524281C62}"
+	ProjectSection(SolutionItems) = preProject
+		DbScripts\ManufacturerManagerWithMudBlazor_Db_Script.sql = DbScripts\ManufacturerManagerWithMudBlazor_Db_Script.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManufacturerManagerUserInterface", "ManufacturerManagerUserInterface\ManufacturerManagerUserInterface.csproj", "{3E600182-2BD8-467C-8749-A23E51872FFF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{96505874-D2EC-40C6-B1D3-54E4C9715FC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{96505874-D2EC-40C6-B1D3-54E4C9715FC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{96505874-D2EC-40C6-B1D3-54E4C9715FC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{96505874-D2EC-40C6-B1D3-54E4C9715FC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E600182-2BD8-467C-8749-A23E51872FFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E600182-2BD8-467C-8749-A23E51872FFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E600182-2BD8-467C-8749-A23E51872FFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E600182-2BD8-467C-8749-A23E51872FFF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{96505874-D2EC-40C6-B1D3-54E4C9715FC8} = {5A78E1B9-022C-4B66-97DC-EDB54089898A}
+		{3E600182-2BD8-467C-8749-A23E51872FFF} = {5A78E1B9-022C-4B66-97DC-EDB54089898A}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC7695F7-81FD-4099-8621-3B35184EFDCD}
+	EndGlobalSection
+EndGlobal

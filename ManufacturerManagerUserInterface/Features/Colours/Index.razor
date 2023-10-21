@@ -1,0 +1,16 @@
+﻿@page "/colours/index"
+@inherits ColourBasePageClass
+
+@if (Colours == null)
+{
+    
+}
+
+
+
+@code{
+    private ICollection<ColourModel> Colours = null!;
+
+    protected override async Task OnInitializedAsync() =>
+        Colours = await ColourHandler.GetColoursAsync();
+}
