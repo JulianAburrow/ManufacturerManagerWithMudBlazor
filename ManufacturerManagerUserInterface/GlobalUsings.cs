@@ -3,6 +3,7 @@ global using DataAccess.Handlers;
 global using DataAccess.Interfaces;
 global using DataAccess.Models;
 global using ManufacturerManagerUserInterface.Extensions;
+global using ManufacturerManagerUserInterface.Models;
 global using ManufacturerManagerUserInterface.Shared.BasePageClasses;
 global using Microsoft.AspNetCore.Components;
 global using Microsoft.EntityFrameworkCore;

@@ -1,0 +1,32 @@
+﻿@page "/colour/edit/{ColourId:int}"
+@inherits ColourBasePageClass
+
+<PageTitle>Edit Colour</PageTitle>
+
+@if (ColourDisplayModel == null)
+{
+    <h3>Loading Colour...</h3>
+    return;
+}
+
+<h3>Edit Colour</h3>
+
+<EditForm Model="@ColourDisplayModel" OnValidSubmit="UpdateColour">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <MudGrid>
+        <MudItem sm="7">
+            <MudCard>
+                <MudCardContent>
+                    <MudTextField Label="Name" @bind-Value="ColourDisplayModel.Name" AutoFocus OnlyValidateIfDirty="true" />
+                </MudCardContent>
+                <MudCardActions>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    &nbsp;
+                    <a class="btn btn-primary" href="/colours/index">Cancel</a>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</EditForm>

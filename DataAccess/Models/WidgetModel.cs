@@ -4,7 +4,7 @@ public class WidgetModel
 {
     public int WidgetId { get; set; }
 
-    public string WidgetName { get; set; } = default!;
+    public string Name { get; set; } = default!;
 
     public int ManufacturerId { get; set; }
 

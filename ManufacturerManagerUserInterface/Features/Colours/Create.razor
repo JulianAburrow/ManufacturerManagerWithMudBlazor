@@ -1,0 +1,26 @@
+﻿@page "/colour/create"
+@inherits ColourBasePageClass
+
+<PageTitle>Create Colour</PageTitle>
+
+<h3>Create Colour</h3>
+
+<EditForm Model="@ColourDisplayModel" OnValidSubmit="CreateColour">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <MudGrid>
+        <MudItem sm="7">
+            <MudCard>
+                <MudCardContent>
+                    <MudTextField Label="Name" @bind-Value="ColourDisplayModel.Name" AutoFocus OnlyValidateIfDirty="true" />
+                </MudCardContent>
+                <MudCardActions>
+                    <button type="submit" class="btn btn-primary">Create</button>
+                    &nbsp;
+                    <a href="/colours/index" class="btn btn-primary">Cancel</a>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</EditForm>

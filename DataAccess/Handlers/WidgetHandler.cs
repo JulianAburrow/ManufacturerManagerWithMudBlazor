@@ -46,7 +46,7 @@ public class WidgetHandler : IWidgetHandler
         var widgetToUpdate = _context.Widgets.SingleOrDefault(w => w.WidgetId == widget.WidgetId);
         if (widgetToUpdate == null)
             return;
-        widgetToUpdate.WidgetName = widget.WidgetName;
+        widgetToUpdate.Name = widget.Name;
         widgetToUpdate.ColourJustificationId = widget.ColourJustificationId;
         widgetToUpdate.ManufacturerId = widget.ManufacturerId;
         widgetToUpdate.StatusId = widget.StatusId;

@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34031.279
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{96505874-D2EC-40C6-B1D3-54E4C9715FC8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccess\DataAccess.csproj", "{96505874-D2EC-40C6-B1D3-54E4C9715FC8}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5A78E1B9-022C-4B66-97DC-EDB54089898A}"
 EndProject
@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DbScripts", "DbScripts", "{
 		DbScripts\ManufacturerManagerWithMudBlazor_Db_Script.sql = DbScripts\ManufacturerManagerWithMudBlazor_Db_Script.sql
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManufacturerManagerUserInterface", "ManufacturerManagerUserInterface\ManufacturerManagerUserInterface.csproj", "{3E600182-2BD8-467C-8749-A23E51872FFF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ManufacturerManagerUserInterface", "ManufacturerManagerUserInterface\ManufacturerManagerUserInterface.csproj", "{3E600182-2BD8-467C-8749-A23E51872FFF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

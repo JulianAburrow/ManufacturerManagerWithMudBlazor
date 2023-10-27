@@ -1,6 +1,4 @@
-﻿using DataAccess.Data;
-
-namespace DataAccess.Handlers;
+﻿namespace DataAccess.Handlers;
 
 public class ColourHandler : IColourHandler
 {
@@ -26,20 +24,18 @@ public class ColourHandler : IColourHandler
             await SaveChangesAsync();
     }
 
-    public async Task<ColourModel> GetColourAsync(int colourId)
-    {
-        return await _context.Colours.SingleOrDefaultAsync(c => c.ColourId == colourId);
-    }
+    public async Task<ColourModel> GetColourAsync(int colourId) =>
+        await _context.Colours
+            .Include(c => c.Widgets)
+            .SingleOrDefaultAsync(c => c.ColourId == colourId);
 
-    public async Task<List<ColourModel>> GetColoursAsync()
-    {
-        return await _context.Colours.ToListAsync();
-    }
+    public async Task<List<ColourModel>> GetColoursAsync() =>
+        await _context.Colours
+            .Include(c => c.Widgets)
+            .ToListAsync();
 
-    public async Task SaveChangesAsync()
-    {
+    public async Task SaveChangesAsync() =>
         await _context.SaveChangesAsync();
-    }
 
     public async Task UpdateColourAsync(ColourModel colour, bool callSaveChanges)
     {
