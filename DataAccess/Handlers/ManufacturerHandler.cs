@@ -26,15 +26,18 @@ public class ManufacturerHandler : IManufacturerHandler
             await SaveChangesAsync();
     }
 
-    public async Task<ManufacturerModel> GetManufacturerAsync(int manufacturerId)
-    {
-        return await _context.Manufacturers.SingleOrDefaultAsync(m => m.ManufacturerId == manufacturerId);
-    }
+    public async Task<ManufacturerModel> GetManufacturerAsync(int manufacturerId) =>
+        await _context.Manufacturers
+            .Include(m => m.Widgets)
+                .ThenInclude(w => w.Colour)
+            .Include(m => m.Status)
+            .SingleOrDefaultAsync(m => m.ManufacturerId == manufacturerId);
 
-    public async Task<List<ManufacturerModel>> GetManufacturersAsync()
-    {
-        return await _context.Manufacturers.ToListAsync();
-    }
+    public async Task<List<ManufacturerModel>> GetManufacturersAsync() =>
+        await _context.Manufacturers
+        .Include(m => m.Widgets)
+        .Include(m => m.Status)
+        .ToListAsync();
 
     public async Task SaveChangesAsync()
     {
@@ -46,7 +49,7 @@ public class ManufacturerHandler : IManufacturerHandler
         var manufacturerToUpdate = _context.Manufacturers.SingleOrDefault(m => m.ManufacturerId == manufacturer.ManufacturerId);
         if (manufacturerToUpdate == null)
             return;
-        manufacturerToUpdate.ManufacturerName = manufacturer.ManufacturerName;
+        manufacturerToUpdate.Name = manufacturer.Name;
         manufacturerToUpdate.StatusId = manufacturer.StatusId;
         if (callSaveChanges)
             await SaveChangesAsync();

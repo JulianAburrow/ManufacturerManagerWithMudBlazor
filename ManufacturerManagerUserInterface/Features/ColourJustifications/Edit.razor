@@ -1,0 +1,32 @@
+﻿@page "/colourjustification/edit/{ColourJustificationId:int}"
+@inherits ColourJustificationBasePageClass
+
+<PageTitle>Edit Colour Justification</PageTitle>
+
+@if (ColourJustificationDisplayModel == null)
+{
+    <MudAlert Severity="Severity.Info" ContentAlignment="HorizontalAlignment.Center">Loading Colour Justification...</MudAlert>
+    return;
+}
+
+<h3>Edit Colour Justification</h3>
+
+<EditForm Model="@ColourJustificationDisplayModel" OnValidSubmit="UpdateColourJustification">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <MudGrid>
+        <MudItem sm="7">
+            <MudCard>
+                <MudCardContent>
+                    <MudTextField Label="Justification" @bind-Value="ColourJustificationDisplayModel.Justification" AutoFocus OnlyValidateIfDirty="true" />
+                 </MudCardContent>
+                 <MudCardActions>
+                     <button type="submit" class="btn btn-primary">Update</button>
+                     &nbsp;
+                     <a class="btn btn-primary" href="/colourjustifications/index">Cancel</a>
+                 </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</EditForm>

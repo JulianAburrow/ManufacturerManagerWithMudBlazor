@@ -4,7 +4,7 @@ public class ManufacturerModel
 {
     public int ManufacturerId { get; set; }
 
-    public string ManufacturerName { get; set; } = default!;
+    public string Name { get; set; } = default!;
 
     public int StatusId { get; set; }
 

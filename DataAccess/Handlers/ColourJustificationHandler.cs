@@ -1,6 +1,4 @@
-﻿using DataAccess.Data;
-
-namespace DataAccess.Handlers;
+﻿namespace DataAccess.Handlers;
 
 public class ColourJustificationHandler : IColourJustificationHandler
 {
@@ -26,20 +24,20 @@ public class ColourJustificationHandler : IColourJustificationHandler
             await SaveChangesAsync();
     }
 
-    public async Task<ColourJustificationModel> GetColourJustificationAsync(int colourJustificationId)
-    {
-        return await _context.ColourJustifications.SingleOrDefaultAsync(c => c.ColourJustificationId == colourJustificationId);
-    }
+    public async Task<ColourJustificationModel> GetColourJustificationAsync(int colourJustificationId) =>
+        await _context.ColourJustifications
+            .Include(c => c.Widgets)
+            .AsNoTracking()
+            .SingleOrDefaultAsync(c => c.ColourJustificationId == colourJustificationId);
 
-    public async Task<List<ColourJustificationModel>> GetColourJustificationsAsync()
-    {
-        return await _context.ColourJustifications.ToListAsync();
-    }
+    public async Task<List<ColourJustificationModel>> GetColourJustificationsAsync() =>
+        await _context.ColourJustifications
+            .Include(c => c.Widgets)
+            .AsNoTracking()
+            .ToListAsync();
 
-    public async Task SaveChangesAsync()
-    {
+    public async Task SaveChangesAsync() =>
         await _context.SaveChangesAsync();
-    }
 
     public async Task UpdateColourJustificationAsync(ColourJustificationModel colourJustification, bool callSaveChanges)
     {

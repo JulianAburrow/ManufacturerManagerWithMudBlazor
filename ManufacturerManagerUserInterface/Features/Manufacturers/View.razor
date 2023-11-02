@@ -1,0 +1,67 @@
+﻿@page "/manufacturer/view/{ManufacturerId:int}"
+@inherits ManufacturerBasePageClass
+
+<PageTitle>View Manufacturer</PageTitle>
+
+@if (ManufacturerModel == null || ManufacturerModel.Status == null)
+{
+    <MudAlert Severity="Severity.Info" ContentAlignment="HorizontalAlignment.Center">Loading Manufacturer</MudAlert>
+    return;
+}
+
+<h3>View Manufacturer</h3>
+
+<MudGrid>
+    <MudItem sm="7">
+        <MudCard>
+            <MudCardContent>
+                <MudField Label="Id">@ManufacturerModel.ManufacturerId</MudField>
+                <MudField Label="Name">@ManufacturerModel.Name</MudField>
+                <MudField Label="Status">@ManufacturerModel.Status.StatusName</MudField>
+            </MudCardContent>
+            <MudCardActions>
+                <a href="/manufacturer/edit/@ManufacturerModel.ManufacturerId" class="btn btn-primary">Edit</a>
+                &nbsp;
+                <a href="/manufacturers/index" class="btn btn-primary">Back to list</a>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@if (!ManufacturerModel.Widgets.Any())
+{
+    <h4>@ManufacturerModel.Name has no widgets.</h4>
+    return;
+}
+
+<br />
+<br />
+
+<h4>Widgets for @ManufacturerModel.Name</h4>
+
+<MudTable
+    Items="ManufacturerModel.Widgets"
+    Hover
+    FixedHeader="true">
+    <HeaderContent>
+        <MudTh title="Sort by Widget Name">
+            <MudTableSortLabel SortBy="new Func<WidgetModel, object>(x => x.Name)">
+                Name
+            </MudTableSortLabel>
+        </MudTh>
+        <MudTh title="Sort by Colour">
+            <MudTableSortLabel SortBy="new Func<WidgetModel, object>(x => x.Colour?.Name)">
+                Colour
+            </MudTableSortLabel>
+        </MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd>@context.Name</MudTd>
+         <MudTd>@(context.Colour != null ? context.Colour.Name : "None")</MudTd>
+            <MudTd>
+                <a href="/widget/view/@context.WidgetId" class="btn btn-primary">View</a>
+                &nbsp;
+                <a href="/widget/edit/@context.WidgetId" class="btn btn-primary">Edit</a>
+            </MudTd>
+    </RowTemplate>
+</MudTable>

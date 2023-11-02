@@ -1,0 +1,29 @@
+﻿@page "/colourjustification/view/{ColourJustificationId:int}"
+@inherits ColourJustificationBasePageClass
+
+<PageTitle>View Colour Justification</PageTitle>
+
+@if (ColourJustificationModel == null)
+{
+    <MudAlert Severity="Severity.Info" ContentAlignment="HorizontalAlignment.Center">Loading Colour Justification...</MudAlert>
+    return;
+}
+
+<h3>View Colour Justification</h3>
+
+<MudGrid>
+    <MudItem sm="7">
+        <MudCard>
+            <MudCardContent>
+                <MudField Label="Justification">@ColourJustificationModel.Justification</MudField>
+            </MudCardContent>
+            <MudCardActions>
+                <a class="btn btn-primary" href="/colourjustification/edit/@ColourJustificationModel.ColourJustificationId">Edit</a>
+                &nbsp;
+                <a class="btn btn-danger" href="/colourjustification/delete/@ColourJustificationModel.ColourJustificationId">Delete</a>
+                &nbsp;
+                <a class="btn btn-primary" href="/colourjustification/index">Cancel</a>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>"
+</MudGrid>

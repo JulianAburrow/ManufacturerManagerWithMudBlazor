@@ -1,0 +1,63 @@
+﻿@page "/widget/create"
+@inherits WidgetBasePageClass
+
+<PageTitle>Create Widget</PageTitle>
+
+@if (WidgetStatuses == null || Manufacturers == null || WidgetStatuses == null)
+{
+    return;
+}
+
+<h3>Create Widget</h3>
+
+<EditForm Model="WidgetDisplayModel" OnValidSubmit="CreateWidget">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <MudGrid>
+        <MudItem sm="7">
+            <MudCard>
+                <MudCardContent>
+                    <MudTextField Label="Name" @bind-Value=@WidgetDisplayModel.Name AutoFocus OnlyValidateIfDirty="true" />
+                    <MudSelect Label="Manufacturer" @bind-Value="@WidgetDisplayModel.ManufacturerId">
+                        @foreach (var manufacturer in Manufacturers)
+                        {
+                            <MudSelectItem T="int" Value="@manufacturer.ManufacturerId">
+                                @manufacturer.Name
+                            </MudSelectItem>
+                        }
+                    </MudSelect>
+                    <MudSelect Label="Colour" @bind-Value="WidgetDisplayModel.ColourId">
+                        @foreach (var colour in Colours)
+                        {
+                            <MudSelectItem T="int?" Value="colour.ColourId">
+                                @colour.Name
+                            </MudSelectItem>
+                        }
+                    </MudSelect>
+                    <MudSelect Label="Colour Justifcation" @bind-Value="WidgetDisplayModel.ColourJustificationId">
+                        @foreach (var colourJustification in ColourJustifications)
+                        {
+                            <MudSelectItem T="int?" Value="colourJustification.ColourJustificationId">
+                                @colourJustification.Justification
+                            </MudSelectItem>
+                        }
+                    </MudSelect>
+                    <MudSelect Label="Status" @bind-Value="WidgetDisplayModel.StatusId">
+                        @foreach (var widgetStatus in WidgetStatuses)
+                        {
+                            <MudSelectItem T="int" Value="widgetStatus.StatusId">
+                                @widgetStatus.StatusName
+                            </MudSelectItem>
+                        }
+                    </MudSelect>
+                </MudCardContent>
+                <MudCardActions>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                    &nbsp;
+                    <a class="btn btn-primary" href="/widgets/index">Cancel</a>
+                </MudCardActions>
+            </MudCard>
+        </MudItem>
+    </MudGrid>
+</EditForm>

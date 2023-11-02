@@ -1,0 +1,16 @@
+﻿namespace ManufacturerManagerUserInterface.Shared.BasePageClasses;
+
+public abstract class ManufacturerBasePageClass : BasePageClass
+{
+    [Inject] protected IManufacturerHandler ManufacturerHandler { get; set; } = default!;
+
+    [Inject] protected IManufacturerStatusHandler ManufacturerStatusHandler { get; set; } = default!;
+
+    [Parameter] public int ManufacturerId { get; set; }
+
+    protected ManufacturerModel ManufacturerModel = new();
+
+    protected ManufacturerDisplayModel ManufacturerDisplayModel = new();
+
+    public required List<ManufacturerStatusModel> ManufacturerStatuses { get; set; }
+}
