@@ -1,6 +1,4 @@
-﻿using DataAccess.Data;
-
-namespace DataAccess.Handlers;
+﻿namespace DataAccess.Handlers;
 
 public class ManufacturerHandler : IManufacturerHandler
 {
