@@ -10,7 +10,7 @@ public class PublicEnums
 
     public enum WidgetStatusEnum
     {
-        Acive = 1,
+        Active = 1,
         Inactive = 2,
     }
 }

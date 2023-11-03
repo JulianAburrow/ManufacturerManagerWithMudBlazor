@@ -6,7 +6,7 @@ public partial class Edit
 
     protected override async Task OnInitializedAsync()
     {
-        WidgetStatuses = await WidgetStatusHandler.GetWidgetStatusModelsAsync();
+        WidgetStatuses = await WidgetStatusHandler.GetWidgetStatusesAsync();
         Colours = await ColourHandler.GetColoursAsync();
         Colours.Insert(0, new ColourModel
         {

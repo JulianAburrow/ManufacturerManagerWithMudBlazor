@@ -9,7 +9,7 @@ public class WidgetStatusHandler : IWidgetStatusHandler
     public WidgetStatusHandler(ManufacturerManagerContext context) =>
         _context = context;
 
-    public async Task<List<WidgetStatusModel>> GetWidgetStatusModelsAsync()
+    public async Task<List<WidgetStatusModel>> GetWidgetStatusesAsync()
     {
         return await _context.WidgetStatuses.ToListAsync();
     }

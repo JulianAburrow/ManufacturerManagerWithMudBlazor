@@ -2,5 +2,5 @@
 
 public interface IWidgetStatusHandler
 {
-    Task<List<WidgetStatusModel>> GetWidgetStatusModelsAsync();
+    Task<List<WidgetStatusModel>> GetWidgetStatusesAsync();
 }

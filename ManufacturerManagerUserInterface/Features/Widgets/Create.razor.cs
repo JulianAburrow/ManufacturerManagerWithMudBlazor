@@ -4,7 +4,7 @@ public partial class Create
 {
     protected override async Task OnInitializedAsync()
     {
-        WidgetStatuses = await WidgetStatusHandler.GetWidgetStatusModelsAsync();
+        WidgetStatuses = await WidgetStatusHandler.GetWidgetStatusesAsync();
         Colours = await ColourHandler.GetColoursAsync();
         ColourJustifications = await ColourJustificationHandler.GetColourJustificationsAsync();
         Manufacturers = await ManufacturerHandler.GetManufacturersAsync();
