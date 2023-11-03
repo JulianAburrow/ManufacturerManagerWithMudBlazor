@@ -1,13 +1,13 @@
 ﻿@page "/widgets/index"
 @inherits WidgetBasePageClass
 
+<PageTitle>Widgets</PageTitle>
+
 @if (Widgets == null)
 {
     <MudAlert Severity="Severity.Info" ContentAlignment="HorizontalAlignment.Center">Loading Widgets</MudAlert>
     return;
 }
-
-<PageTitle>Widgets</PageTitle>
 
 <h3>Widgets</h3>
 

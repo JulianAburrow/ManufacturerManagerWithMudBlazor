@@ -1,13 +1,13 @@
 ﻿@page "/manufacturers/index"
 @inherits ManufacturerBasePageClass
 
+<PageTitle>Manufacturers</PageTitle>
+
 @if (Manufacturers == null)
 {
     <MudAlert Severity="Severity.Info" ContentAlignment="HorizontalAlignment.Center">Loading Manufacturers</MudAlert>
     return;
 }
-
-<PageTitle>Manufacturers</PageTitle>
 
 <h3>Manufacturers</h3>
 
