@@ -33,7 +33,7 @@ public class ColourJustificationTests
     };
 
     [Fact]
-    public async Task CreateColourJustificationCreatesColourJustification()
+    public async void CreateColourJustificationCreatesColourJustification()
     {
         var initialCount = _manufacturerManagerContext.ColourJustifications.Count();
 
@@ -46,7 +46,7 @@ public class ColourJustificationTests
     }
 
     [Fact]
-    private async void GetColourJustificationGetsColourJustification()
+    public async void GetColourJustificationGetsColourJustification()
     {
         _manufacturerManagerContext.ColourJustifications.Add(ColourJustification1);
         _manufacturerManagerContext.SaveChanges();
@@ -57,7 +57,7 @@ public class ColourJustificationTests
     }
 
     [Fact]
-    private async void GetColourJustificationsGetsColourJustifications()
+    public async void GetColourJustificationsGetsColourJustifications()
     {
         var initialCount = _manufacturerManagerContext.ColourJustifications.Count();
 

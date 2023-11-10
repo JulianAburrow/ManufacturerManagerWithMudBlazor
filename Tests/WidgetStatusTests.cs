@@ -24,7 +24,7 @@ public class WidgetStatusTests
     };
 
     [Fact]
-    private async void GetWidgetStatusesGetsWidgetStatuses()
+    public async void GetWidgetStatusesGetsWidgetStatuses()
     {
         var initialCount = _manufacturerManagerContext.WidgetStatuses.Count();
 

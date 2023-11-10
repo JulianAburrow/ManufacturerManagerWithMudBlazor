@@ -24,7 +24,7 @@ public class ManufacturerStatusTests
     };
 
     [Fact]
-    private async void GetManufacturerStatusesGetsManufacturerStatuses()
+    public async void GetManufacturerStatusesGetsManufacturerStatuses()
     {
         var initialCount = _manufacturerManagerContext.ManufacturerStatuses.Count();
 

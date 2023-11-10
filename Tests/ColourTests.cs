@@ -34,7 +34,7 @@ public class ColourTests
     };
 
     [Fact]
-    private async void AddColourAddsColour()
+    public async void AddColourAddsColour()
     {
         var initialCount = _manufacturerManagerContext.Colours.Count();
 
@@ -47,7 +47,7 @@ public class ColourTests
     }
 
     [Fact]
-    private async void GetColourGetsColour()
+    public async void GetColourGetsColour()
     {
         _manufacturerManagerContext.Colours.Add(ColourYellow);
         _manufacturerManagerContext.SaveChanges();
@@ -58,7 +58,7 @@ public class ColourTests
     }
 
     [Fact]
-    private async void GetColoursGetsColours()
+    public async void GetColoursGetsColours()
     {
         var initialCount = _manufacturerManagerContext.Colours.Count();
 
@@ -89,7 +89,7 @@ public class ColourTests
     }
 
     [Fact]
-    private async void DeleteColourDeletesColour()
+    public async void DeleteColourDeletesColour()
     {
         int colourId;
 
