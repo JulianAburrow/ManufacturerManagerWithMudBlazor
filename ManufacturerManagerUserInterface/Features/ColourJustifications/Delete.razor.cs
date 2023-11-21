@@ -2,8 +2,11 @@
 
 public partial class Delete
 {
-    protected override async Task OnInitializedAsync() =>
+    protected override async Task OnInitializedAsync()
+    {
         ColourJustificationModel = await ColourJustificationHandler.GetColourJustificationAsync(ColourJustificationId);
+    }
+        
 
     private async Task DeleteColourJustification()
     {
