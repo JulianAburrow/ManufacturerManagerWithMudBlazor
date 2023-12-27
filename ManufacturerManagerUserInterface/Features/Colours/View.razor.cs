@@ -5,5 +5,6 @@ public partial class View
     protected override async Task OnInitializedAsync()
     {
         ColourModel = await ColourHandler.GetColourAsync(ColourId);
+        Layout.SetHeaderValue("View Colour");
     }
 }

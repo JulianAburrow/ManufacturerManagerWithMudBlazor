@@ -32,6 +32,8 @@ public partial class Create
             StatusName = SelectValues.PleaseSelectText,
         });
         WidgetDisplayModel.StatusId = SelectValues.PleaseSelectValue;
+
+        Layout.SetHeaderValue("Create Widget");
     }
 
     private async Task CreateWidget()

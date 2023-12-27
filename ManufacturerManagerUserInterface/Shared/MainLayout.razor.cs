@@ -8,4 +8,12 @@ public partial class MainLayout
     {
         _drawerOpen = !_drawerOpen;
     }
+
+    private string HeaderValue { get; set; } = null!;
+
+    public void SetHeaderValue(string headerValue)
+    {
+        HeaderValue = headerValue;
+        StateHasChanged();
+    }
 }

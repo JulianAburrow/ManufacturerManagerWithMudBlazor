@@ -35,6 +35,8 @@ public partial class Edit
         WidgetDisplayModel.Manufacturer = WidgetModel.Manufacturer;
 
         ManufacturerInactive = WidgetModel.Manufacturer.StatusId == (int)ManufacturerStatusEnum.Inactive;
+
+        Layout.SetHeaderValue("Edit Widget");
     }
 
     private async void UpdateWidget()

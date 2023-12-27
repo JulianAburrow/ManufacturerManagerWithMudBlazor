@@ -9,8 +9,6 @@
     return;
 }
 
-<h3>Delete Colour</h3>
-
 @if (ColourModel.Widgets.Count > 0)
 {
     <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center">Cannot delete @ColourModel.Name as @ColourModel.Widgets.Count @(ColourModel.Widgets.Count == 1 ? "widget is" : "widgets are") this colour.</MudAlert>

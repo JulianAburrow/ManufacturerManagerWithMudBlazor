@@ -49,6 +49,17 @@ public class ManufacturerHandler : IManufacturerHandler
             return;
         manufacturerToUpdate.Name = manufacturer.Name;
         manufacturerToUpdate.StatusId = manufacturer.StatusId;
+
+        if (manufacturer.StatusId == (int) Enums.PublicEnums.ManufacturerStatusEnum.Inactive)
+        {
+            var widgets = _context.Widgets
+                .Where(w => w.ManufacturerId == manufacturer.ManufacturerId);
+            foreach (var widget in widgets)
+            {
+                widget.StatusId = (int) Enums.PublicEnums.WidgetStatusEnum.Inactive;
+            }
+        }
+
         if (callSaveChanges)
             await SaveChangesAsync();
     }

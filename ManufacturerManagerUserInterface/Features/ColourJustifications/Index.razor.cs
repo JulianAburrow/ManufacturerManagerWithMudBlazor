@@ -8,5 +8,6 @@ public partial class Index
     {
         ColourJustifications = await ColourJustificationHandler.GetColourJustificationsAsync();
         Snackbar.Add($"{ColourJustifications.Count} item(s) found", ColourJustifications.Count > 0 ? Severity.Info : Severity.Warning);
+        Layout.SetHeaderValue("Colour Justifications");
     }
 }

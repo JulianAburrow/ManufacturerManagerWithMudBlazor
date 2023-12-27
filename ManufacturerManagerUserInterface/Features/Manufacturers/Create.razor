@@ -8,8 +8,6 @@
     return;
 }
 
-<h3>Create Manufacturer</h3>
-
 <EditForm Model="@ManufacturerDisplayModel" OnValidSubmit="CreateManufacturer">
     <DataAnnotationsValidator />
     <ValidationSummary />
@@ -31,7 +29,7 @@
                  <MudCardActions>
                      <button type="submit" class="btn btn-primary">Submit</button>
                      &nbsp;
-                     <a class="btn btn-primary" href="/colours/index">Cancel</a>
+                     <a class="btn btn-primary" href="/manufacturers/index">Cancel</a>
                  </MudCardActions>
              </MudCard>
          </MudItem>

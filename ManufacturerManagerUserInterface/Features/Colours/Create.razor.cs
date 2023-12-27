@@ -2,6 +2,10 @@
 
 public partial class Create
 {
+    protected override void OnInitialized() =>
+        Layout.SetHeaderValue("Create Colour");
+    
+
     private async Task CreateColour()
     {
         ColourModel.Name = ColourDisplayModel.Name;

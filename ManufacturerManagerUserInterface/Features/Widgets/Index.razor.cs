@@ -8,5 +8,6 @@ public partial class Index
     {
         Widgets = await WidgetHandler.GetWidgetsAsync();
         Snackbar.Add($"{Widgets.Count} item(s) found.", Widgets.Count == 0 ? Severity.Error : Severity.Success);
+        Layout.SetHeaderValue("Widgets");
     }
 }
