@@ -24,20 +24,17 @@ public class WidgetHandler : IWidgetHandler
             await SaveChangesAsync();
     }
 
-    public async Task<WidgetModel> GetWidgetAsync(int widgetId)
-    {
-        return await _context.Widgets.SingleOrDefaultAsync(w => w.WidgetId == widgetId);
-    }
+    public async Task<WidgetModel> GetWidgetAsync(int widgetId) =>
+        await _context.Widgets.SingleOrDefaultAsync(w => w.WidgetId == widgetId);
 
-    public async Task<List<WidgetModel>> GetWidgetsAsync()
-    {
-        return await _context.Widgets.ToListAsync();
-    }
+    public async Task<List<WidgetModel>> GetWidgetsAsync() =>
+        await _context.Widgets
+        .Include(w => w.Manufacturer)
+        .Include(w => w.Status)
+        .ToListAsync();
 
-    public async Task SaveChangesAsync()
-    {
+    public async Task SaveChangesAsync() =>
         await _context.SaveChangesAsync();
-    }
 
     public async Task UpdateWidgetAsync(WidgetModel widget, bool callSaveChanges)
     {
