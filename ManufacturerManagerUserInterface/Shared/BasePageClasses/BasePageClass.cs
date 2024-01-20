@@ -6,10 +6,10 @@ public class BasePageClass : ComponentBase
 
     [Inject] protected ISnackbar Snackbar { get; set; } = default!;
 
-    [CascadingParameter] public MainLayout Layout { get; set; } = new();
+    [CascadingParameter] public MainLayout MainLayout { get; set; } = new();
 
     protected override void OnInitialized()
     {
-        Layout.SetHeaderValue(string.Empty);
+        MainLayout.SetHeaderValue(string.Empty);
     }
 }

@@ -11,7 +11,7 @@ public partial class Create
             StatusName = SelectValues.PleaseSelectText,
         });
         ManufacturerDisplayModel.StatusId = -1;
-        Layout.SetHeaderValue("Create Manufacturer");
+        MainLayout.SetHeaderValue("Create Manufacturer");
     }
 
     private async Task CreateManufacturer()

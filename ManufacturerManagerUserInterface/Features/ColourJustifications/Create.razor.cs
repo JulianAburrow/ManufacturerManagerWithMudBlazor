@@ -3,7 +3,7 @@
 public partial class Create
 {
     protected override void OnInitialized() =>
-        Layout.SetHeaderValue("Create Colour Justification");
+        MainLayout.SetHeaderValue("Create Colour Justification");
 
     protected async Task CreateColourJustification()
     {

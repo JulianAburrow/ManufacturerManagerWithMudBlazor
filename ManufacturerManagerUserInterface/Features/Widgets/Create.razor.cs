@@ -33,7 +33,7 @@ public partial class Create
         });
         WidgetDisplayModel.StatusId = SelectValues.PleaseSelectValue;
 
-        Layout.SetHeaderValue("Create Widget");
+        MainLayout.SetHeaderValue("Create Widget");
     }
 
     private async Task CreateWidget()

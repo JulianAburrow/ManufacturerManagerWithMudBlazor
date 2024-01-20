@@ -6,7 +6,7 @@ public partial class Edit
     {
         ColourJustificationModel = await ColourJustificationHandler.GetColourJustificationAsync(ColourJustificationId);
         ColourJustificationDisplayModel.Justification = ColourJustificationModel.Justification;
-        Layout.SetHeaderValue("Edit Colour Justification");
+        MainLayout.SetHeaderValue("Edit Colour Justification");
     }
 
     private async Task UpdateColourJustification()

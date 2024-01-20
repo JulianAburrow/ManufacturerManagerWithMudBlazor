@@ -6,7 +6,7 @@ public partial class Edit
     {
         ColourModel = await ColourHandler.GetColourAsync(ColourId);
         ColourDisplayModel.Name = ColourModel.Name;
-        Layout.SetHeaderValue("Edit Colour");
+        MainLayout.SetHeaderValue("Edit Colour");
     }
 
     private async Task UpdateColour()

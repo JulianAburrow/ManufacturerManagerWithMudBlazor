@@ -9,11 +9,11 @@ public partial class MainLayout
         _drawerOpen = !_drawerOpen;
     }
 
-    private string HeaderValue { get; set; } = null!;
+    private string HeaderText { get; set; } = null!;
 
-    public void SetHeaderValue(string headerValue)
+    public void SetHeaderValue(string headerText)
     {
-        HeaderValue = headerValue;
+        HeaderText = headerText;
         StateHasChanged();
     }
 }

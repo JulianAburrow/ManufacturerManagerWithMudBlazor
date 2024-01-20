@@ -5,7 +5,7 @@ public partial class Delete
     protected override async Task OnInitializedAsync()
     {
         ColourModel = await ColourHandler.GetColourAsync(ColourId);
-        Layout.SetHeaderValue("Delete Colour");
+        MainLayout.SetHeaderValue("Delete Colour");
     }
 
     private async Task DeleteColour()

@@ -5,6 +5,6 @@ public partial class View
     protected override async Task OnInitializedAsync()
     {
         ColourJustificationModel = await ColourJustificationHandler.GetColourJustificationAsync(ColourJustificationId);
-        Layout.SetHeaderValue("View Colour Justification");
+        MainLayout.SetHeaderValue("View Colour Justification");
     }
 }

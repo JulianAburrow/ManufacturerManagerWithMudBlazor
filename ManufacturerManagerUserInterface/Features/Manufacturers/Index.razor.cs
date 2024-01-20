@@ -8,6 +8,6 @@ public partial class Index
     {
         Manufacturers = await ManufacturerHandler.GetManufacturersAsync();
         Snackbar.Add($"{Manufacturers.Count} item(s) found.", Manufacturers.Count == 0 ? Severity.Error : Severity.Success);
-        Layout.SetHeaderValue("Manufacturers");
+        MainLayout.SetHeaderValue("Manufacturers");
     }
 }

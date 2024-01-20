@@ -9,7 +9,7 @@ public partial class Edit
         ManufacturerDisplayModel.ManufacturerId = ManufacturerId;
         ManufacturerDisplayModel.Name = ManufacturerModel.Name;
         ManufacturerDisplayModel.StatusId = ManufacturerModel.StatusId;
-        Layout.SetHeaderValue("Edit Manufacturer");
+        MainLayout.SetHeaderValue("Edit Manufacturer");
     }
 
     private async Task UpdateManufacturer()
