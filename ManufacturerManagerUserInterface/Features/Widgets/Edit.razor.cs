@@ -52,6 +52,12 @@ public partial class Edit
             : null;
         WidgetModel.StatusId = WidgetDisplayModel.StatusId;
 
+        if (WidgetImage != null)
+        {
+            var imageMemoryStream = await ToMemoryStreamAsync(WidgetImage.OpenReadStream());
+            WidgetModel.WidgetImage = imageMemoryStream.ToArray();
+        }
+
         try
         {
             await WidgetHandler.UpdateWidgetAsync(WidgetModel, true);

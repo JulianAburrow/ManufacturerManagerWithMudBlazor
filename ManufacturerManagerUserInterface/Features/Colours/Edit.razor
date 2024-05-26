@@ -16,9 +16,7 @@
     <MudGrid>
         <MudItem sm="7">
             <MudCard>
-                <MudCardContent>
-                    <MudTextField Label="Name" @bind-Value="ColourDisplayModel.Name" AutoFocus OnlyValidateIfDirty="true" />
-                </MudCardContent>
+                <ColourCreateUpdateComponent ColourDisplayModel="@ColourDisplayModel" />
                 <MudCardActions>
                     <button type="submit" class="btn btn-primary">Update</button>
                     &nbsp;

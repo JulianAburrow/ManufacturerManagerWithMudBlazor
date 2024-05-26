@@ -25,4 +25,39 @@ public abstract class WidgetBasePageClass : BasePageClass
     public required List<ColourJustificationModel> ColourJustifications { get; set; }
 
     public required List<ManufacturerModel> Manufacturers { get; set; }
+
+    protected IBrowserFile WidgetImage = null!;
+
+    protected string FileName = string.Empty;
+
+    protected static async Task<MemoryStream> ToMemoryStreamAsync(Stream stream)
+    {
+        using var memoryStream = new MemoryStream();
+        await stream.CopyToAsync(memoryStream);
+        return memoryStream;
+    }
+
+    protected void UploadFile(IBrowserFile file)
+    {
+        if (file == null)
+        {
+            return;
+        }
+        try
+        {
+            WidgetImage = file;
+            FileName = file.Name;
+            Snackbar.Add($"File {FileName} successfully uploaded", Severity.Success);
+        }
+        catch
+        {
+            Snackbar.Add($"An error occurred uploading {file.Name}. Please try again.", Severity.Error);
+        }
+    }
+
+    protected void RemoveImage()
+    {
+        WidgetImage = null!;
+        FileName = string.Empty;
+    }
 }

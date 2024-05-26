@@ -10,9 +10,7 @@
     <MudGrid>
         <MudItem sm="7">
             <MudCard>
-                <MudCardContent>
-                    <MudTextField Label="Justification" @bind-Value="@ColourJustificationDisplayModel.Justification" AutoFocus OnlyValidateIfDirty="true" />
-                 </MudCardContent>
+                <ColourJustificationCreateUpdateComponent ColourJustificationDisplayModel="@ColourJustificationDisplayModel" />
                  <MudCardActions>
                      <button type="submit" class="btn btn-primary">Submit</button>
                      &nbsp;

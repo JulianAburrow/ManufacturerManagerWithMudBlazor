@@ -15,12 +15,23 @@
     <MudItem sm="7">
         <MudCard>
             <MudCardContent>
-                <MudField Label="Id">@WidgetModel.WidgetId</MudField>
                 <MudField Label="Name">@WidgetModel.Name</MudField>
                 <MudField Label="Manufacturer">@WidgetModel.Manufacturer.Name</MudField>
                 <MudField Label="Colour">@(WidgetModel.Colour != null ? WidgetModel.Colour.Name : "Not specified")</MudField>
                 <MudField Label="Colour Justification">@(WidgetModel.ColourJustification != null ? WidgetModel.ColourJustification.Justification : "Not specified")</MudField>
                 <MudField Label="Status">@WidgetModel.Status.StatusName</MudField>
+                @if (WidgetModel.WidgetImage != null)
+                {
+                    <MudField Label="Image" />
+                    <MudImage src="@(WidgetModel.WidgetImage != null
+                        ? ImageHelper.ImageSource(WidgetModel.WidgetImage)
+                        : ""
+                    )" title="@WidgetModel.Name" Elevation="25" Class="rounded-lg" />
+                }
+                else
+                {
+                    <MudField Label="No image supplied" />
+                }                
                 </MudCardContent>
                 <MudCardActions>
                     <a href="/widget/edit/@WidgetModel.WidgetId" class="btn btn-primary">Edit</a>

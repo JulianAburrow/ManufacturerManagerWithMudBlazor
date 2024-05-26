@@ -33,7 +33,7 @@
                             </MudSelectItem>
                         }
                     </MudSelect>
-                    <MudSelect Label="Colour Justifcation" @bind-Value="WidgetDisplayModel.ColourJustificationId">
+                    <MudSelect Label="Colour Justification" @bind-Value="WidgetDisplayModel.ColourJustificationId">
                         @foreach (var colourJustification in ColourJustifications)
                         {
                             <MudSelectItem T="int?" Value="colourJustification.ColourJustificationId">
@@ -49,6 +49,24 @@
                             </MudSelectItem>
                         }
                     </MudSelect>
+                    <MudFileUpload T="IBrowserFile" FilesChanged="UploadFile" Context="FileContext">
+                        <ButtonTemplate>
+                            <MudButton HtmlTag="label"
+                                Variant="Variant.Filled"
+                                Color="Color.Primary"
+                                StartIcon="@Icons.Material.Filled.FileUpload"
+                                for="@FileContext">
+                                Upload File
+                            </MudButton>
+                            <MudButton HtmlTag="label"
+                                OnClick="RemoveImage"
+                                Variant="Variant.Filled"
+                                Color="Color.Error">
+                                Remove Image
+                            </MudButton>
+                        </ButtonTemplate>
+                    </MudFileUpload>
+                    @FileName
                 </MudCardContent>
                 <MudCardActions>
                     <button type="submit" class="btn btn-primary">Submit</button>

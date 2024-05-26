@@ -14,6 +14,8 @@ public class WidgetModel
 
     public int StatusId { get; set; }
 
+    public byte[]? WidgetImage { get; set; }
+
     public ManufacturerModel Manufacturer { get; set; } = null!;
 
     public WidgetStatusModel Status { get; set; } = null!;

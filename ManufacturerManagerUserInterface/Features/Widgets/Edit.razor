@@ -57,6 +57,25 @@
                             </MudSelectItem>
                         }
                     </MudSelect>
+                    <MudFileUpload T="IBrowserFile" FilesChanged="UploadFile" Context="FileContext">
+                        <ButtonTemplate>
+                            <MudButton HtmlTag="label"
+                                Variant="Variant.Filled"
+                                Color="Color.Primary"
+                                StartIcon="@Icons.Material.Filled.FileUpload"
+                                for="@FileContext">
+                                Upload File
+                            </MudButton>
+                            <MudButton HtmlTag="label"
+                                       OnClick="RemoveImage"
+                                       Variant="Variant.Filled"
+                                       Color="Color.Error">
+                                Remove Image
+                            </MudButton>
+                        </ButtonTemplate>
+                        </ButtonTemplate>
+                    </MudFileUpload>
+                    @FileName
                 </MudCardContent>
                 <MudCardActions>
                     <button type="submit" class="btn btn-primary">Submit</button>
