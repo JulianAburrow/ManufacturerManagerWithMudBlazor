@@ -10,4 +10,9 @@ public partial class Index
         Snackbar.Add($"{Widgets.Count} item(s) found.", Widgets.Count == 0 ? Severity.Error : Severity.Success);
         MainLayout.SetHeaderValue("Widgets");
     }
+
+    private async void ExportAsCSV()
+    {
+
+    }
 }

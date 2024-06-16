@@ -9,15 +9,14 @@
     return;
 }
 
-<a href="/widget/create" class="btn btn-primary">Create Widget</a>
+<a href="/widget/create" class="btn btn-primary">Create Widget</a>@* &nbsp;<button class="btn btn-success" hidden="@(!Widgets.Any())" onclick="ExportAsCSV">Download as CSV</button> *@
 
 <br />
 <br />
 
 <MudTable Items="Widgets"
           Hover
-           FixedHeader="true"
-           Height="500px">
+          FixedHeader="true">
      <HeaderContent>
          <MudTh title="Sort by Widget Name">
              <MudTableSortLabel SortBy="new Func<WidgetModel, object>(x => x.Name)">
@@ -34,6 +33,14 @@
                  Colour
              </MudTableSortLabel>
          </MudTh>
+         <MudTh title="Sort by Stock Level">
+             <MudTableSortLabel SortBy="new Func<WidgetModel, object>(x => x.StockLevel)">
+                 Stock Level
+             </MudTableSortLabel>
+         </MudTh>
+         <MudTh>
+             Net Stock Value
+         </MudTh>
          <MudTh title="Sort by Status">
              <MudTableSortLabel SortBy="new Func<WidgetModel, object>(x => x.Status.StatusName)">
                  Status
@@ -45,6 +52,8 @@
          <MudTd>@context.Name</MudTd>
          <MudTd>@context.Manufacturer.Name</MudTd>
          <MudTd>@(context.Colour != null ? context.Colour.Name : "None")</MudTd>
+         <MudTd>@context.StockLevel</MudTd>
+         <MudTd>£@(context.CostPrice * context.StockLevel)</MudTd>
          <MudTd>@context.Status.StatusName</MudTd>
          <MudTd>
              <a href="/widget/view/@context.WidgetId" class="btn btn-primary">View</a>
@@ -52,6 +61,14 @@
              <a href="/widget/edit/@context.WidgetId" class="btn btn-primary">Edit</a>
          </MudTd>
      </RowTemplate>
+     <FooterContent>
+        <MudTd></MudTd>
+        <MudTd></MudTd>
+        <MudTd></MudTd>
+        <MudTd>Total Net Value</MudTd>
+        <MudTd>£@(Widgets.Sum(w => w.StockLevel) * Widgets.Sum(w => w.CostPrice))</MudTd>
+        <MudTd></MudTd>
+     </FooterContent>
      <PagerContent>
          <MudTablePager PageSizeOptions="new int[] { 5, 10, 15, int.MaxValue }" />
      </PagerContent>

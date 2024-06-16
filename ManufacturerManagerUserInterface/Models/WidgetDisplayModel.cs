@@ -28,6 +28,10 @@ public class WidgetDisplayModel
     [Display(Name = "Retail Price")]
     public decimal RetailPrice { get; set; }
 
+    [Required(ErrorMessage = "{0} is required")]
+    [Display(Name = "Stock Level")]
+    public int StockLevel {  get; set; }
+
     public byte[]? WidgetImage { get; set; }
 
     public ManufacturerModel Manufacturer { get; set; } = null!;

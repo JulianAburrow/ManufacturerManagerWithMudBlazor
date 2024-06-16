@@ -31,6 +31,7 @@ public class WidgetHandler : IWidgetHandler
         await _context.Widgets
         .Include(w => w.Manufacturer)
         .Include(w => w.Status)
+        .OrderBy(w => w.Name)
         .ToListAsync();
 
     public async Task SaveChangesAsync() =>
@@ -47,6 +48,7 @@ public class WidgetHandler : IWidgetHandler
         widgetToUpdate.StatusId = widget.StatusId;
         widgetToUpdate.CostPrice = widget.CostPrice;
         widgetToUpdate.RetailPrice = widget.RetailPrice;
+        widgetToUpdate.StockLevel = widget.StockLevel;
         widgetToUpdate.WidgetImage = widget.WidgetImage;
 
         if (callSaveChanges)

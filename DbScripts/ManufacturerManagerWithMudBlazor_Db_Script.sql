@@ -105,6 +105,7 @@ CREATE TABLE Widget (
 	StatusId INT NOT NULL,
 	CostPrice DECIMAL NOT NULL,
 	RetailPrice DECIMAL NOT NULL,
+	StockLevel INT NOT NULL,
 	WidgetImage VARBINARY(MAX) NULL,
 	CONSTRAINT PK_Widget PRIMARY KEY (WidgetId),
 	CONSTRAINT FK_Widget_Manufacturer FOREIGN KEY (ManufacturerId)

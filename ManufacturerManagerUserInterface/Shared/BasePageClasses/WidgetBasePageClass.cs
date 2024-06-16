@@ -43,6 +43,7 @@ public abstract class WidgetBasePageClass : BasePageClass
         WidgetModel.StatusId = WidgetDisplayModel.StatusId;
         WidgetModel.CostPrice = WidgetDisplayModel.CostPrice;
         WidgetModel.RetailPrice = WidgetDisplayModel.RetailPrice;
+        WidgetModel.StockLevel = WidgetDisplayModel.StockLevel;
 
         if (WidgetImage != null)
         {

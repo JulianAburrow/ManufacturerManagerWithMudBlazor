@@ -36,6 +36,7 @@ public partial class Edit
         WidgetDisplayModel.WidgetImage = WidgetModel.WidgetImage;
         WidgetDisplayModel.CostPrice = WidgetModel.CostPrice;
         WidgetDisplayModel.RetailPrice = WidgetModel.RetailPrice;
+        WidgetDisplayModel.StockLevel = WidgetModel.StockLevel;
 
         ManufacturerInactive = WidgetModel.Manufacturer.StatusId == (int)ManufacturerStatusEnum.Inactive;
 
