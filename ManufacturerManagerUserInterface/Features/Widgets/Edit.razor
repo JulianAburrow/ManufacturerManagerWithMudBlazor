@@ -21,7 +21,6 @@
         <MudItem sm="7">
             <MudCard>
                 <MudCardContent>
-                    <MudField Label="Id">@WidgetDisplayModel.WidgetId</MudField>
                     <MudTextField Label="Name" @bind-Value="WidgetDisplayModel.Name" />
                     <MudSelect Label="Manufacturer" @bind-Value="WidgetDisplayModel.ManufacturerId">
                         @foreach (var manufacturer in Manufacturers)
@@ -72,7 +71,6 @@
                                        Color="Color.Error">
                                 Remove Image
                             </MudButton>
-                        </ButtonTemplate>
                         </ButtonTemplate>
                     </MudFileUpload>
                     @FileName

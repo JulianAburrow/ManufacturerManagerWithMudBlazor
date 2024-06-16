@@ -10,31 +10,7 @@
 }
 
 <EditForm Model="@ManufacturerDisplayModel" OnValidSubmit="@UpdateManufacturer">
-    <DataAnnotationsValidator />
-    <ValidationSummary />
 
-    <MudGrid>
-        <MudItem sm="7">
-            <MudCard>
-                <MudCardContent>
-                    <MudField Label="Id">@ManufacturerDisplayModel.ManufacturerId</MudField>
-                    <MudTextField Label="Name" @bind-Value="ManufacturerDisplayModel.Name" AutoFocus OnlyValidateIfDirty="true" />
-                     <MudSelect Label="Status" @bind-Value="ManufacturerDisplayModel.StatusId">
-                        @foreach (var manufacturerStatus in ManufacturerStatuses)
-                        {
-                            <MudSelectItem T="int" Value="manufacturerStatus.StatusId">
-                                @manufacturerStatus.StatusName
-                            </MudSelectItem>
-                        }
-                    </MudSelect>
-                 </MudCardContent>
-                 <MudCardActions>
-                     <button type="submit" class="btn btn-primary">Submit</button>
-                     &nbsp;
-                     <a class="btn btn-primary" href="/manufacturers/index">Cancel</a>
-                 </MudCardActions>
-             </MudCard>
-         </MudItem>
-     </MudGrid>
+    <ManufacturerCreateUpdateComponent ManufacturerDisplayModel="ManufacturerDisplayModel" ManufacturerStatuses="ManufacturerStatuses" />
 
  </EditForm>
