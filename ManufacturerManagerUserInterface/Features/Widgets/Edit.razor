@@ -74,6 +74,18 @@
                         </ButtonTemplate>
                     </MudFileUpload>
                     @FileName
+                    @if (WidgetModel.WidgetImage != null)
+                    {
+                        <MudField Label="Image" />
+                        <MudImage src="@(WidgetDisplayModel.WidgetImage != null
+                        ? ImageHelper.ImageSource(WidgetDisplayModel.WidgetImage)
+                        : ""
+                    )" title="@WidgetModel.Name" Elevation="25" Class="rounded-lg" />
+                    }
+                    else
+                    {
+                        <MudField Label="No image supplied" />
+                    }
                 </MudCardContent>
                 <MudCardActions>
                     <button type="submit" class="btn btn-primary">Submit</button>

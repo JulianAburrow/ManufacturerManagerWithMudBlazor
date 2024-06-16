@@ -33,6 +33,7 @@ public partial class Edit
             : SelectValues.NoneValue;
         WidgetDisplayModel.StatusId = WidgetModel.StatusId;
         WidgetDisplayModel.Manufacturer = WidgetModel.Manufacturer;
+        WidgetDisplayModel.WidgetImage = WidgetModel.WidgetImage;
 
         ManufacturerInactive = WidgetModel.Manufacturer.StatusId == (int)ManufacturerStatusEnum.Inactive;
 

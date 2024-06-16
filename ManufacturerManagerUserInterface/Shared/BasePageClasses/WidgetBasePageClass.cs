@@ -58,6 +58,8 @@ public abstract class WidgetBasePageClass : BasePageClass
     protected void RemoveImage()
     {
         WidgetImage = null!;
+        WidgetDisplayModel.WidgetImage = null!;
         FileName = string.Empty;
+        StateHasChanged();
     }
 }
