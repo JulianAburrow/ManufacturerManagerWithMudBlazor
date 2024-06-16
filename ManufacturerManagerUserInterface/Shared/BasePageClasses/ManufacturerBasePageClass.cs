@@ -13,4 +13,10 @@ public abstract class ManufacturerBasePageClass : BasePageClass
     protected ManufacturerDisplayModel ManufacturerDisplayModel = new();
 
     public required List<ManufacturerStatusModel> ManufacturerStatuses { get; set; }
+
+    protected void CopyDisplayModelToModel()
+    {
+        ManufacturerModel.Name = ManufacturerDisplayModel.Name;
+        ManufacturerModel.StatusId = ManufacturerDisplayModel.StatusId;
+    }
 }

@@ -14,9 +14,7 @@ public partial class Edit
 
     private async Task UpdateManufacturer()
     {
-        ManufacturerModel.ManufacturerId = ManufacturerId;
-        ManufacturerModel.Name = ManufacturerDisplayModel.Name;
-        ManufacturerModel.StatusId = ManufacturerDisplayModel.StatusId;
+        CopyDisplayModelToModel();
 
         try
         {

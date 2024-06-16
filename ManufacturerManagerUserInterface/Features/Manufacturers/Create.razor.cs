@@ -16,8 +16,7 @@ public partial class Create
 
     private async Task CreateManufacturer()
     {
-        ManufacturerModel.Name = ManufacturerDisplayModel.Name;
-        ManufacturerModel.StatusId = ManufacturerDisplayModel.StatusId;
+        CopyDisplayModelToModel();
 
         try
         {
