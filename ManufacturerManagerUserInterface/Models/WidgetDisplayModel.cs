@@ -20,6 +20,14 @@ public class WidgetDisplayModel
     [Display(Name = "Status")]
     public int StatusId { get; set; }
 
+    [Required(ErrorMessage = "{0} is required")]
+    [Display(Name = "Cost Price")]
+    public decimal CostPrice { get; set; }
+
+    [Required(ErrorMessage = "{0} is required")]
+    [Display(Name = "Retail Price")]
+    public decimal RetailPrice { get; set; }
+
     public byte[]? WidgetImage { get; set; }
 
     public ManufacturerModel Manufacturer { get; set; } = null!;

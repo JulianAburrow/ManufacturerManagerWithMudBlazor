@@ -30,6 +30,27 @@ public abstract class WidgetBasePageClass : BasePageClass
 
     protected string FileName = string.Empty;
 
+    protected async Task CopyDisplayModelToModel()
+    {
+        WidgetModel.Name = WidgetDisplayModel.Name;
+        WidgetModel.ManufacturerId = WidgetDisplayModel.ManufacturerId;
+        WidgetModel.ColourId = WidgetDisplayModel.ColourId != SelectValues.NoneValue
+            ? WidgetDisplayModel.ColourId
+            : null;
+        WidgetModel.ColourJustificationId = WidgetDisplayModel.ColourJustificationId != SelectValues.NoneValue
+            ? WidgetDisplayModel.ColourJustificationId
+            : null;
+        WidgetModel.StatusId = WidgetDisplayModel.StatusId;
+        WidgetModel.CostPrice = WidgetDisplayModel.CostPrice;
+        WidgetModel.RetailPrice = WidgetDisplayModel.RetailPrice;
+
+        if (WidgetImage != null)
+        {
+            var imageMemoryStream = await ToMemoryStreamAsync(WidgetImage.OpenReadStream());
+            WidgetModel.WidgetImage = imageMemoryStream.ToArray();
+        }
+    }
+
     protected static async Task<MemoryStream> ToMemoryStreamAsync(Stream stream)
     {
         using var memoryStream = new MemoryStream();

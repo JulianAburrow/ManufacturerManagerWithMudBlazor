@@ -103,6 +103,8 @@ CREATE TABLE Widget (
 	ColourId INT NULL,
 	ColourJustificationId INT NULL,
 	StatusId INT NOT NULL,
+	CostPrice DECIMAL NOT NULL,
+	RetailPrice DECIMAL NOT NULL,
 	WidgetImage VARBINARY(MAX) NULL,
 	CONSTRAINT PK_Widget PRIMARY KEY (WidgetId),
 	CONSTRAINT FK_Widget_Manufacturer FOREIGN KEY (ManufacturerId)

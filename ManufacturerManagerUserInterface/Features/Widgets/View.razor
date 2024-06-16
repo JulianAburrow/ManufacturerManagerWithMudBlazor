@@ -20,6 +20,8 @@
                 <MudField Label="Colour">@(WidgetModel.Colour != null ? WidgetModel.Colour.Name : "Not specified")</MudField>
                 <MudField Label="Colour Justification">@(WidgetModel.ColourJustification != null ? WidgetModel.ColourJustification.Justification : "Not specified")</MudField>
                 <MudField Label="Status">@WidgetModel.Status.StatusName</MudField>
+                <MudField Label="Cost Price">£@WidgetModel.CostPrice</MudField>
+                <MudField Label="Retail Price">£@WidgetModel.RetailPrice</MudField>
                 @if (WidgetModel.WidgetImage != null)
                 {
                     <MudField Label="Image" />

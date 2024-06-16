@@ -45,6 +45,8 @@ public class WidgetHandler : IWidgetHandler
         widgetToUpdate.ColourJustificationId = widget.ColourJustificationId;
         widgetToUpdate.ManufacturerId = widget.ManufacturerId;
         widgetToUpdate.StatusId = widget.StatusId;
+        widgetToUpdate.CostPrice = widget.CostPrice;
+        widgetToUpdate.RetailPrice = widget.RetailPrice;
         widgetToUpdate.WidgetImage = widget.WidgetImage;
 
         if (callSaveChanges)

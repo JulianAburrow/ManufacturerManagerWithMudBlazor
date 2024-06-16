@@ -34,6 +34,8 @@ public partial class Edit
         WidgetDisplayModel.StatusId = WidgetModel.StatusId;
         WidgetDisplayModel.Manufacturer = WidgetModel.Manufacturer;
         WidgetDisplayModel.WidgetImage = WidgetModel.WidgetImage;
+        WidgetDisplayModel.CostPrice = WidgetModel.CostPrice;
+        WidgetDisplayModel.RetailPrice = WidgetModel.RetailPrice;
 
         ManufacturerInactive = WidgetModel.Manufacturer.StatusId == (int)ManufacturerStatusEnum.Inactive;
 
@@ -42,22 +44,7 @@ public partial class Edit
 
     private async void UpdateWidget()
     {
-        WidgetModel.WidgetId = WidgetId;
-        WidgetModel.Name = WidgetDisplayModel.Name;
-        WidgetModel.ManufacturerId = WidgetDisplayModel.ManufacturerId;
-        WidgetModel.ColourId = WidgetDisplayModel.ColourId != SelectValues.NoneValue
-            ? WidgetDisplayModel.ColourId
-            : null;
-        WidgetModel.ColourJustificationId = WidgetDisplayModel.ColourJustificationId != SelectValues.NoneValue
-            ? WidgetDisplayModel.ColourJustificationId
-            : null;
-        WidgetModel.StatusId = WidgetDisplayModel.StatusId;
-
-        if (WidgetImage != null)
-        {
-            var imageMemoryStream = await ToMemoryStreamAsync(WidgetImage.OpenReadStream());
-            WidgetModel.WidgetImage = imageMemoryStream.ToArray();
-        }
+        await CopyDisplayModelToModel();
 
         try
         {

@@ -14,6 +14,10 @@ public class WidgetModel
 
     public int StatusId { get; set; }
 
+    public decimal CostPrice { get; set; }
+
+    public decimal RetailPrice { get; set; }
+
     public byte[]? WidgetImage { get; set; }
 
     public ManufacturerModel Manufacturer { get; set; } = null!;
