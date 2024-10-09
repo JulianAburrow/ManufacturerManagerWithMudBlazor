@@ -1,7 +1,4 @@
-﻿using ManufacturerManagerUserInterface.Shared.Methods;
-using Microsoft.JSInterop;
-
-namespace ManufacturerManagerUserInterface.Features.Widgets;
+﻿namespace ManufacturerManagerUserInterface.Features.Widgets;
 
 public partial class Index
 {

@@ -6,11 +6,13 @@ global using ManufacturerManagerUserInterface.Extensions;
 global using ManufacturerManagerUserInterface.Models;
 global using ManufacturerManagerUserInterface.Shared.BasePageClasses;
 global using ManufacturerManagerUserInterface.Shared.CommonValues;
+global using ManufacturerManagerUserInterface.Shared.Methods;
 global using Microsoft.AspNetCore.Components;
 global using Microsoft.AspNetCore.Components.Forms;
 global using Microsoft.EntityFrameworkCore;
+global using Microsoft.JSInterop;
 global using MudBlazor;
 global using MudBlazor.Services;
 global using System.ComponentModel.DataAnnotations;
-
+global using System.Text;
 global using static DataAccess.Enums.PublicEnums;

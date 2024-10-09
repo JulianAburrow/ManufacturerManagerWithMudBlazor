@@ -1,6 +1,4 @@
-﻿using System.Text;
-
-namespace ManufacturerManagerUserInterface.Shared.Methods;
+﻿namespace ManufacturerManagerUserInterface.Shared.Methods;
 
 public static class SharedMethods
 {
