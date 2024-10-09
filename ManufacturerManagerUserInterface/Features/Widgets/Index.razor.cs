@@ -1,4 +1,7 @@
-﻿namespace ManufacturerManagerUserInterface.Features.Widgets;
+﻿using ManufacturerManagerUserInterface.Shared.Methods;
+using Microsoft.JSInterop;
+
+namespace ManufacturerManagerUserInterface.Features.Widgets;
 
 public partial class Index
 {
@@ -13,6 +16,11 @@ public partial class Index
 
     private async void ExportAsCSV()
     {
+        var csvString = CSVStrings.CreateWidgetsCSVString(Widgets);
+        var fileBytes = SharedMethods.GetUTF8Bytes(csvString);
+        var fileName = $"Widgets-{DateTime.Now}.csv";
+        var base64 = SharedMethods.GetBase64String(fileBytes);
 
+        await JSRuntime.InvokeVoidAsync(DownloadFile, base64, ContentType, fileName);
     }
 }

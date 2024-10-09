@@ -16,6 +16,17 @@
     <link href="ManufacturerManagerUserInterface.styles.css" rel="stylesheet" />
     <link rel="icon" type="image/png" href="favicon.png"/>
     <component type="typeof(HeadOutlet)" render-mode="ServerPrerendered" />
+    <script>
+        window.downloadFile = function (base64Content, contentType, fileName) {
+            const link = document.createElement('a');
+            link.href = 'data:' + contentType + ';base64,' + base64Content;
+            link.download = fileName;
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        };
+    </script>
+
 </head>
 <body>
     <component type="typeof(App)" render-mode="ServerPrerendered" />

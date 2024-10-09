@@ -5,7 +5,7 @@ public partial class Create
     protected override void OnInitialized() =>
         MainLayout.SetHeaderValue("Create Colour Justification");
 
-    protected async Task CreateColourJustification()
+    private async Task CreateColourJustification()
     {
         ColourJustificationModel = new ColourJustificationModel
         {
