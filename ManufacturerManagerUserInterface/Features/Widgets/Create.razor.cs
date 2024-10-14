@@ -10,28 +10,28 @@ public partial class Create
         Manufacturers = await ManufacturerHandler.GetManufacturersAsync();
         Manufacturers.Insert(0, new()
         {
-            ManufacturerId = SelectValues.PleaseSelectValue,
-            Name = SelectValues.PleaseSelectText,
+            ManufacturerId = SharedValues.PleaseSelectValue,
+            Name = SharedValues.PleaseSelectText,
         });
-        WidgetDisplayModel.ManufacturerId = SelectValues.PleaseSelectValue;
+        WidgetDisplayModel.ManufacturerId = SharedValues.PleaseSelectValue;
         Colours.Insert(0, new()
         {
-            ColourId = SelectValues.NoneValue,
-            Name = SelectValues.NoneText,
+            ColourId = SharedValues.NoneValue,
+            Name = SharedValues.NoneText,
         });
-        WidgetDisplayModel.ColourId = SelectValues.PleaseSelectValue;
+        WidgetDisplayModel.ColourId = SharedValues.PleaseSelectValue;
         ColourJustifications.Insert(0, new()
         {
-            ColourJustificationId = SelectValues.NoneValue,
-            Justification = SelectValues.NoneText,
+            ColourJustificationId = SharedValues.NoneValue,
+            Justification = SharedValues.NoneText,
         });
-        WidgetDisplayModel.ColourJustificationId = SelectValues.PleaseSelectValue;
+        WidgetDisplayModel.ColourJustificationId = SharedValues.PleaseSelectValue;
         WidgetStatuses.Insert(0, new()
         {
-            StatusId = SelectValues.PleaseSelectValue,
-            StatusName = SelectValues.PleaseSelectText,
+            StatusId = SharedValues.PleaseSelectValue,
+            StatusName = SharedValues.PleaseSelectText,
         });
-        WidgetDisplayModel.StatusId = SelectValues.PleaseSelectValue;
+        WidgetDisplayModel.StatusId = SharedValues.PleaseSelectValue;
 
         MainLayout.SetHeaderValue("Create Widget");
     }

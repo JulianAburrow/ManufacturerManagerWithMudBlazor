@@ -10,14 +10,14 @@ public partial class Edit
         Colours = await ColourHandler.GetColoursAsync();
         Colours.Insert(0, new ColourModel
         {
-            ColourId = SelectValues.NoneValue,
-            Name = SelectValues.NoneText,
+            ColourId = SharedValues.NoneValue,
+            Name = SharedValues.NoneText,
         });
         ColourJustifications = await ColourJustificationHandler.GetColourJustificationsAsync();
         ColourJustifications.Insert(0, new ColourJustificationModel
         {
-            ColourJustificationId = SelectValues.NoneValue,
-            Justification = SelectValues.NoneText,
+            ColourJustificationId = SharedValues.NoneValue,
+            Justification = SharedValues.NoneText,
         });
         Manufacturers = await ManufacturerHandler.GetManufacturersAsync();
 
@@ -27,10 +27,10 @@ public partial class Edit
         WidgetDisplayModel.ManufacturerId = WidgetModel.ManufacturerId;
         WidgetDisplayModel.ColourId = WidgetModel.ColourId != null
             ? WidgetModel.ColourId
-            : SelectValues.NoneValue;
+            : SharedValues.NoneValue;
         WidgetDisplayModel.ColourJustificationId = WidgetModel.ColourJustificationId != null
             ? WidgetModel.ColourJustificationId
-            : SelectValues.NoneValue;
+            : SharedValues.NoneValue;
         WidgetDisplayModel.StatusId = WidgetModel.StatusId;
         WidgetDisplayModel.Manufacturer = WidgetModel.Manufacturer;
         WidgetDisplayModel.WidgetImage = WidgetModel.WidgetImage;

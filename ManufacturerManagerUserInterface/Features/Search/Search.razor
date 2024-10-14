@@ -1,0 +1,30 @@
+﻿@page "/search"
+@inherits SearchBasePageClass
+
+<MudGrid>
+    <MudItem sm="7">
+        <MudCard>
+            <MudCardContent>
+                <MudSelect T="int" Label="Search Type" @bind-Value="SearchModel.SearchType">
+                    <MudSelectItem T="int" Value="@((int)SharedValues.ObjectTypes.PleaseSelect)">@SharedValues.PleaseSelectText</MudSelectItem>
+                    <MudSelectItem T="int" Value="@((int)SharedValues.ObjectTypes.Manufacturer)">@SharedValues.ObjectTypes.Manufacturer</MudSelectItem>
+                    <MudSelectItem T="int" Value="@((int)SharedValues.ObjectTypes.Widget)">@SharedValues.ObjectTypes.Widget</MudSelectItem>
+                </MudSelect>
+                <MudTextField Label="Name" @bind-Value="SearchModel.SearchText" />
+            </MudCardContent>
+            <MudCardActions>
+                <button type="button" class="btn btn-primary" @onclick="DoSearch">Search</button>
+            </MudCardActions>
+        </MudCard>
+    </MudItem>
+</MudGrid>
+
+@if (ManufacturerSearchResults != null)
+{
+    <ManufacturerGridViewComponent Manufacturers="@ManufacturerSearchResults" />
+}
+
+@if (WidgetSearchResults != null)
+{
+    <WidgetGridViewComponent Widgets="@WidgetSearchResults" />
+}

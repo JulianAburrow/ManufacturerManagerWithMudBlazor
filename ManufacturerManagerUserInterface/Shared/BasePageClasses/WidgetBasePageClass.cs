@@ -34,10 +34,10 @@ public abstract class WidgetBasePageClass : BasePageClass
     {
         WidgetModel.Name = WidgetDisplayModel.Name;
         WidgetModel.ManufacturerId = WidgetDisplayModel.ManufacturerId;
-        WidgetModel.ColourId = WidgetDisplayModel.ColourId != SelectValues.NoneValue
+        WidgetModel.ColourId = WidgetDisplayModel.ColourId != SharedValues.NoneValue
             ? WidgetDisplayModel.ColourId
             : null;
-        WidgetModel.ColourJustificationId = WidgetDisplayModel.ColourJustificationId != SelectValues.NoneValue
+        WidgetModel.ColourJustificationId = WidgetDisplayModel.ColourJustificationId != SharedValues.NoneValue
             ? WidgetDisplayModel.ColourJustificationId
             : null;
         WidgetModel.StatusId = WidgetDisplayModel.StatusId;

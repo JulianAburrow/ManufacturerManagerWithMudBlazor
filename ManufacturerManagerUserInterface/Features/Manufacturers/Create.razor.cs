@@ -7,8 +7,8 @@ public partial class Create
         ManufacturerStatuses = await ManufacturerStatusHandler.GetManufacturerStatusesAsync();
         ManufacturerStatuses.Insert(0, new ManufacturerStatusModel
         {
-            StatusId = SelectValues.PleaseSelectValue,
-            StatusName = SelectValues.PleaseSelectText,
+            StatusId = SharedValues.PleaseSelectValue,
+            StatusName = SharedValues.PleaseSelectText,
         });
         ManufacturerDisplayModel.StatusId = -1;
         MainLayout.SetHeaderValue("Create Manufacturer");
