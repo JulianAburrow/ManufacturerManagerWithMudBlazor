@@ -20,6 +20,22 @@ public static class CSVStrings
         return widgetsSB.ToString();
     }
 
+    public static string CreateManufacturersCSVString(List<ManufacturerModel> manufacturers)
+    {
+        var manufacturersSB = new StringBuilder();
+        manufacturersSB.Append("Name,Status,Widget Count");
+        manufacturersSB.Append(Environment.NewLine);
+        foreach(var manufacturer in manufacturers)
+        {
+            manufacturersSB.Append($"{RemoveCommas(manufacturer.Name)},");
+            manufacturersSB.Append($"{manufacturer.Status.StatusName},");
+            manufacturersSB.Append($"{manufacturer.Widgets.Count} ({manufacturer.Widgets.Where(w => w.StatusId == 2).Count()} inactive)");
+            manufacturersSB.Append(Environment.NewLine);
+        }
+
+        return manufacturersSB.ToString();
+    }
+
     private static string RemoveCommas(string? stringToCheck)
     {
         if (stringToCheck == null)

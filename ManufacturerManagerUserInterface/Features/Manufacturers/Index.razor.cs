@@ -10,4 +10,14 @@ public partial class Index
         Snackbar.Add($"{Manufacturers.Count} item(s) found.", Manufacturers.Count == 0 ? Severity.Error : Severity.Success);
         MainLayout.SetHeaderValue("Manufacturers");
     }
+
+    private async void ExportAsCSV()
+    {
+        var csvString = CSVStrings.CreateManufacturersCSVString(Manufacturers);
+        var fileBytes = SharedMethods.GetUTF8Bytes(csvString);
+        var fileName = $"Manufacturers={DateTime.Now}.csv";
+        var base64 = SharedMethods.GetBase64String(fileBytes);
+
+        await JSRuntime.InvokeVoidAsync(DownloadFile, base64, ContentType, fileName);
+    }
 }

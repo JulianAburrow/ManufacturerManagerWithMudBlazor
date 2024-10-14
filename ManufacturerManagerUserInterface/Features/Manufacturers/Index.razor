@@ -9,7 +9,7 @@
     return;
 }
 
-<a href="/manufacturer/create" class="btn btn-primary">Create Manufacturer</a>
+<a href="/manufacturer/create" class="btn btn-primary">Create Manufacturer</a>&nbsp;<button class="btn btn-success" hidden="@(!Manufacturers.Any())" @onclick="ExportAsCSV">Download as CSV</button>
 
 <br />
 <br />
