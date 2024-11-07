@@ -28,6 +28,8 @@ public class ManufacturerHandler : IManufacturerHandler
         await _context.Manufacturers
             .Include(m => m.Widgets)
                 .ThenInclude(w => w.Colour)
+            .Include(m => m.Widgets)
+                .ThenInclude(w => w.Status)
             .Include(m => m.Status)
             .SingleOrDefaultAsync(m => m.ManufacturerId == manufacturerId);
 

@@ -2,7 +2,7 @@
 
 public interface ISearchHandler
 {
-    List<ManufacturerModel> GetManufacturerSearchResults(SearchModel searchModel);
+    List<ManufacturerModel> GetManufacturerSearchResults(ManufacturerSearchModel manufacturerSearchModel);
 
-    List<WidgetModel> GetWidgetSearchResults(SearchModel searchModel);
+    List<WidgetModel> GetWidgetSearchResults(WidgetSearchModel widgetSearchModel);
 }

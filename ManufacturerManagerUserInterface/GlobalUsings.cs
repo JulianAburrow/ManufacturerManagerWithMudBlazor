@@ -6,6 +6,7 @@ global using ManufacturerManagerUserInterface.Extensions;
 global using ManufacturerManagerUserInterface.Models;
 global using ManufacturerManagerUserInterface.Shared.BasePageClasses;
 global using ManufacturerManagerUserInterface.Shared.CommonValues;
+global using ManufacturerManagerUserInterface.Shared.Components;
 global using ManufacturerManagerUserInterface.Shared.Methods;
 global using Microsoft.AspNetCore.Components;
 global using Microsoft.AspNetCore.Components.Forms;

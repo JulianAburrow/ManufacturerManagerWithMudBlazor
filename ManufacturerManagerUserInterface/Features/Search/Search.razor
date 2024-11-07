@@ -11,6 +11,11 @@
                     <MudSelectItem T="int" Value="@((int)SharedValues.ObjectTypes.Widget)">@SharedValues.ObjectTypes.Widget</MudSelectItem>
                 </MudSelect>
                 <MudTextField Label="Name" @bind-Value="SearchModel.SearchText" />
+                <MudSelect T="int" label="Status" @bind-value="SearchModel.ActiveStatus">
+                    <MudSelectItem T="int" Value="@((int)SharedValues.Statuses.Any)">@SharedValues.Statuses.Any</MudSelectItem>
+                    <MudSelectItem T="int" Value="@((int)SharedValues.Statuses.Active)">@SharedValues.Statuses.Active</MudSelectItem>
+                    <MudSelectItem T="int" Value="@((int)SharedValues.Statuses.Inactive)">@SharedValues.Statuses.Inactive</MudSelectItem>
+                </MudSelect>
             </MudCardContent>
             <MudCardActions>
                 <button type="button" class="btn btn-primary" @onclick="DoSearch">Search</button>

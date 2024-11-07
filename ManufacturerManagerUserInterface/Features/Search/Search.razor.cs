@@ -3,13 +3,11 @@
 public partial class Search
 {
     SearchModel SearchModel = new();
-    List<ManufacturerModel>? ManufacturerSearchResults;
-    List<WidgetModel>? WidgetSearchResults;
+    List<ManufacturerModel>? ManufacturerSearchResults = null;
+    List<WidgetModel>? WidgetSearchResults = null;
 
     protected override void OnInitialized()
     {
-        ManufacturerSearchResults = null;
-        WidgetSearchResults = null;
         SearchModel.SearchType = (int)SharedValues.ObjectTypes.PleaseSelect;
         MainLayout.SetHeaderValue("Search");
     }
@@ -21,10 +19,20 @@ public partial class Search
         switch (SearchModel.SearchType)
         {
             case (int)SharedValues.ObjectTypes.Manufacturer:
-                ManufacturerSearchResults = SearchHandler.GetManufacturerSearchResults(SearchModel);
+                var manufacturerSearchModel = new ManufacturerSearchModel
+                {
+                    ManufacturerName = SearchModel.SearchText,
+                    ActiveStatus = SearchModel.ActiveStatus,
+                };
+                ManufacturerSearchResults = SearchHandler.GetManufacturerSearchResults(manufacturerSearchModel);
                 break;
             case (int)SharedValues.ObjectTypes.Widget:
-                WidgetSearchResults = SearchHandler.GetWidgetSearchResults(SearchModel);
+                var widgetSearchModel = new WidgetSearchModel
+                {
+                    WidgetName = SearchModel.SearchText,
+                    ActiveStatus = SearchModel.ActiveStatus,
+                };
+                WidgetSearchResults = SearchHandler.GetWidgetSearchResults(widgetSearchModel);
                 break;
         }
     }
