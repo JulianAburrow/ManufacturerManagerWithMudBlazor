@@ -43,6 +43,16 @@ public partial class Edit
         MainLayout.SetHeaderValue("Edit Widget");
     }
 
+    protected override void OnInitialized()
+    {
+        MainLayout.SetBreadCrumbs(new List<BreadcrumbItem>
+        {
+            GetHomeBreadcrumbItem(),
+            GetWidgetHomeBreadcrumbItem(),
+            GetCustomBreadcrumbItem(EditTextForBreadcrumb),
+        });
+    }
+
     private async void UpdateWidget()
     {
         await CopyDisplayModelToModel();

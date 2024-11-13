@@ -11,6 +11,15 @@ public partial class Index
         MainLayout.SetHeaderValue("Widgets");
     }
 
+    protected override void OnInitialized()
+    {
+        MainLayout.SetBreadCrumbs(new List<BreadcrumbItem>
+        {
+            GetHomeBreadcrumbItem(),
+            GetWidgetHomeBreadcrumbItem(true),
+        });
+    }
+
     private async void ExportAsCSV()
     {
         var csvString = CSVStrings.CreateWidgetsCSVString(Widgets);

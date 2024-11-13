@@ -9,4 +9,9 @@ public class ColourJustificationBasePageClass : BasePageClass
     protected ColourJustificationModel ColourJustificationModel { get; set; } = new();
 
     protected ColourJustificationDisplayModel ColourJustificationDisplayModel { get; set; } = new();
+
+    protected BreadcrumbItem GetColourJustificationHomeBreadcrumbItem(bool isDisabled = false)
+    {
+        return new ("ColourJustifications", "/colourjustifications/index", isDisabled);
+    }
 }

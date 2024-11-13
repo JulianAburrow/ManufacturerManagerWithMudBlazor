@@ -10,4 +10,13 @@ public partial class Index
         Snackbar.Add($"{ColourJustifications.Count} item(s) found", ColourJustifications.Count > 0 ? Severity.Info : Severity.Warning);
         MainLayout.SetHeaderValue("Colour Justifications");
     }
+
+    protected override void OnInitialized()
+    {
+        MainLayout.SetBreadCrumbs(new List<BreadcrumbItem>
+        {
+            GetHomeBreadcrumbItem(),
+            GetColourJustificationHomeBreadcrumbItem(true),
+        });
+    }
 }

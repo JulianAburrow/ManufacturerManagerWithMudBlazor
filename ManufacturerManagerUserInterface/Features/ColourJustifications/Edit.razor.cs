@@ -9,6 +9,16 @@ public partial class Edit
         MainLayout.SetHeaderValue("Edit Colour Justification");
     }
 
+    protected override void OnInitialized()
+    {
+        MainLayout.SetBreadCrumbs(new List<BreadcrumbItem>
+        {
+            GetHomeBreadcrumbItem(),
+            GetColourJustificationHomeBreadcrumbItem(),
+            GetCustomBreadcrumbItem(EditTextForBreadcrumb),
+        });
+    }
+
     private async Task UpdateColourJustification()
     {
         ColourJustificationModel.Justification = ColourJustificationDisplayModel.Justification;

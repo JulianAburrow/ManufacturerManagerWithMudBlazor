@@ -84,4 +84,9 @@ public abstract class WidgetBasePageClass : BasePageClass
         FileName = string.Empty;
         StateHasChanged();
     }
+
+    protected BreadcrumbItem GetWidgetHomeBreadcrumbItem(bool isDisabled = false)
+    {
+        return new BreadcrumbItem("Widgets", "/widgets/index", isDisabled);
+    }
 }

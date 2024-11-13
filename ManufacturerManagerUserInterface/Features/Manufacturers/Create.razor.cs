@@ -14,6 +14,17 @@ public partial class Create
         MainLayout.SetHeaderValue("Create Manufacturer");
     }
 
+    protected override void OnInitialized()
+    {
+        MainLayout.SetBreadCrumbs(new List<BreadcrumbItem>
+        {
+            GetHomeBreadcrumbItem(),
+            GetManufacturerHomeBreadcrumbItem(),
+            GetCustomBreadcrumbItem(CreateTextForBreadcrumb)
+        });
+    }
+
+
     private async Task CreateManufacturer()
     {
         CopyDisplayModelToModel();

@@ -2,9 +2,17 @@
 
 public partial class Create
 {
-    protected override void OnInitialized() =>
+    protected override void OnInitialized()
+    {
         MainLayout.SetHeaderValue("Create Colour");
-    
+        MainLayout.SetBreadCrumbs(new List<BreadcrumbItem>
+        {
+            GetHomeBreadcrumbItem(),
+            GetColourHomeBreadcrumbItem(),
+            GetCustomBreadcrumbItem(CreateTextForBreadcrumb),
+        });
+    }
+
 
     private async Task CreateColour()
     {

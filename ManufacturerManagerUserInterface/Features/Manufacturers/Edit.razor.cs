@@ -12,6 +12,16 @@ public partial class Edit
         MainLayout.SetHeaderValue("Edit Manufacturer");
     }
 
+    protected override void OnInitialized()
+    {
+        MainLayout.SetBreadCrumbs(new List<BreadcrumbItem>
+        {
+            GetHomeBreadcrumbItem(),
+            GetManufacturerHomeBreadcrumbItem(),
+            GetCustomBreadcrumbItem(EditTextForBreadcrumb),
+        });
+    }
+
     private async Task UpdateManufacturer()
     {
         CopyDisplayModelToModel();

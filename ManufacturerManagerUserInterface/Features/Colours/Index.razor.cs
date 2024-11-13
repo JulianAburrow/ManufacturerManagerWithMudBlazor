@@ -10,4 +10,13 @@ public partial class Index
         Snackbar.Add($"{Colours.Count} item(s) found", Colours.Count > 0 ? Severity.Info : Severity.Warning);
         MainLayout.SetHeaderValue("Colours");
     }
+
+    protected override void OnInitialized()
+    {
+        MainLayout.SetBreadCrumbs(new List<BreadcrumbItem>
+        {
+            GetHomeBreadcrumbItem(),
+            GetColourHomeBreadcrumbItem(true),
+        });
+    }
 }

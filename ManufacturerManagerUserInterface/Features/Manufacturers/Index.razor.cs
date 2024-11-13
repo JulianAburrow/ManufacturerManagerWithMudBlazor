@@ -11,6 +11,15 @@ public partial class Index
         MainLayout.SetHeaderValue("Manufacturers");
     }
 
+    protected override void OnInitialized()
+    {
+        MainLayout.SetBreadCrumbs(new List<BreadcrumbItem>
+        {
+            GetHomeBreadcrumbItem(),
+            GetManufacturerHomeBreadcrumbItem(true),
+        });
+    }
+
     private async void ExportAsCSV()
     {
         var csvString = CSVStrings.CreateManufacturersCSVString(Manufacturers);

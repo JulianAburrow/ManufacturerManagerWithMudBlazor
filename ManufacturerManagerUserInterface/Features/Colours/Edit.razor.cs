@@ -9,6 +9,16 @@ public partial class Edit
         MainLayout.SetHeaderValue("Edit Colour");
     }
 
+    protected override void OnInitialized()
+    {
+        MainLayout.SetBreadCrumbs(new List<BreadcrumbItem>
+        {
+            GetHomeBreadcrumbItem(),
+            GetColourHomeBreadcrumbItem(),
+            GetCustomBreadcrumbItem(EditTextForBreadcrumb),
+        });
+    }
+
     private async Task UpdateColour()
     {
         ColourModel.Name = ColourDisplayModel.Name;

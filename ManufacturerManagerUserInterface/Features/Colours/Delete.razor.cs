@@ -8,6 +8,16 @@ public partial class Delete
         MainLayout.SetHeaderValue("Delete Colour");
     }
 
+    protected override void OnInitialized()
+    {
+        MainLayout.SetBreadCrumbs(new List<BreadcrumbItem>
+        {
+            GetHomeBreadcrumbItem(),
+            GetColourHomeBreadcrumbItem(),
+            GetCustomBreadcrumbItem(DeleteTextForBreadcrumb),
+        });
+    }
+
     private async Task DeleteColour()
     {
         try

@@ -19,4 +19,9 @@ public abstract class ManufacturerBasePageClass : BasePageClass
         ManufacturerModel.Name = ManufacturerDisplayModel.Name;
         ManufacturerModel.StatusId = ManufacturerDisplayModel.StatusId;
     }
+
+    protected BreadcrumbItem GetManufacturerHomeBreadcrumbItem(bool isDisabled = false)
+    {
+        return new BreadcrumbItem("Manufacturers", "/manufacturers/index", isDisabled);
+    }
 }

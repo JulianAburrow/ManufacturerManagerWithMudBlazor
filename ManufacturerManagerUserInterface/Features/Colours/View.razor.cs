@@ -7,4 +7,14 @@ public partial class View
         ColourModel = await ColourHandler.GetColourAsync(ColourId);
         MainLayout.SetHeaderValue("View Colour");
     }
+
+    protected override void OnInitialized()
+    {
+        MainLayout.SetBreadCrumbs(new List<BreadcrumbItem>
+        {
+            GetHomeBreadcrumbItem(),
+            GetColourHomeBreadcrumbItem(),
+            GetCustomBreadcrumbItem(ViewTextForBreadcrumb),
+        });
+    }
 }

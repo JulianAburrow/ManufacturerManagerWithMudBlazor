@@ -9,6 +9,8 @@ public partial class MainLayout
         _drawerOpen = !_drawerOpen;
     }
 
+    private List<BreadcrumbItem> BreadCrumbs = new();
+
     private string HeaderText { get; set; } = null!;
 
     public void SetHeaderValue(string headerText)
@@ -16,4 +18,11 @@ public partial class MainLayout
         HeaderText = headerText;
         StateHasChanged();
     }
+
+    public void SetBreadCrumbs(List<BreadcrumbItem> breadcrumbs)
+    {
+        BreadCrumbs.Clear();
+        BreadCrumbs.AddRange(breadcrumbs);
+    }
+
 }

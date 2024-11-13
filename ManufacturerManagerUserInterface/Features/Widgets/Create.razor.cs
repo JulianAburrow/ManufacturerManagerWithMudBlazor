@@ -36,6 +36,16 @@ public partial class Create
         MainLayout.SetHeaderValue("Create Widget");
     }
 
+    protected override void OnInitialized()
+    {
+        MainLayout.SetBreadCrumbs(new List<BreadcrumbItem>
+        {
+            GetHomeBreadcrumbItem(),
+            GetWidgetHomeBreadcrumbItem(),
+            GetCustomBreadcrumbItem(CreateTextForBreadcrumb),
+        });
+    }
+
     private async Task CreateWidget()
     {
         await CopyDisplayModelToModel();

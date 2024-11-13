@@ -9,4 +9,9 @@ public class ColourBasePageClass : BasePageClass
     protected ColourModel ColourModel { get; set; } = new();
 
     protected ColourDisplayModel ColourDisplayModel { get; set; } = new();
+
+    protected BreadcrumbItem GetColourHomeBreadcrumbItem(bool isDisabled = false)
+    {
+        return new ("Colours", "/colours/index", isDisabled);
+    }
 }

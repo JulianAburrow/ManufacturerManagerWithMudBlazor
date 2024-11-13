@@ -7,7 +7,17 @@ public partial class Delete
         ColourJustificationModel = await ColourJustificationHandler.GetColourJustificationAsync(ColourJustificationId);
         MainLayout.SetHeaderValue("Delete Colour Justification");
     }
-        
+
+    protected override void OnInitialized()
+    {
+        MainLayout.SetBreadCrumbs(new List<BreadcrumbItem>
+        {
+            GetHomeBreadcrumbItem(),
+            GetColourJustificationHomeBreadcrumbItem(),
+            GetCustomBreadcrumbItem(DeleteTextForBreadcrumb),
+        });
+    }
+
 
     private async Task DeleteColourJustification()
     {

@@ -7,7 +7,17 @@ public partial class View
         ManufacturerModel = await ManufacturerHandler.GetManufacturerAsync(ManufacturerId);
         MainLayout.SetHeaderValue("View Manufacturer");
     }
-    
+
+    protected override void OnInitialized()
+    {
+        MainLayout.SetBreadCrumbs(new List<BreadcrumbItem>
+        {
+            GetHomeBreadcrumbItem(),
+            GetManufacturerHomeBreadcrumbItem(),
+            GetCustomBreadcrumbItem(ViewTextForBreadcrumb),
+        });
+    }
+
     private async void ExportAsCSV()
     {
         var csvString = CSVStrings.CreateWidgetsCSVString(ManufacturerModel.Widgets.ToList());
