@@ -18,7 +18,11 @@
             <NavMenu />
         </MudDrawer>
         <MudMainContent>
-            <MudBreadcrumbs Items="BreadCrumbs" />
+            <MudBreadcrumbs Items="BreadCrumbs">
+                <SeparatorTemplate>
+                    <MudIcon Icon="@Icons.Material.Filled.ArrowForward" Size="Size.Small" />
+                </SeparatorTemplate>
+            </MudBreadcrumbs>
             @Body
         </MudMainContent>
     </MudLayout>

@@ -23,7 +23,7 @@ public class BasePageClass : ComponentBase
 
     protected BreadcrumbItem GetHomeBreadcrumbItem(bool isDisabled = false)
     {
-        return new ("Home", "#", isDisabled);
+        return new ("Home", "#", isDisabled, icon: Icons.Material.Filled.Home);
     }
 
     protected BreadcrumbItem GetCustomBreadcrumbItem(string text)
