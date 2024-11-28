@@ -24,10 +24,9 @@ public partial class Edit
 
     private async Task UpdateManufacturer()
     {
-        CopyDisplayModelToModel();
-
         try
         {
+            CopyDisplayModelToModel();
             await ManufacturerHandler.UpdateManufacturerAsync(ManufacturerModel, true);
             Snackbar.Add($"Manufacturer {ManufacturerModel.Name} successfully updated.", Severity.Success);
             NavigationManager.NavigateTo("/manufacturers/index");

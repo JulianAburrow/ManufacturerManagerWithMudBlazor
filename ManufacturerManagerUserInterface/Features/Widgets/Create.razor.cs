@@ -48,10 +48,9 @@ public partial class Create
 
     private async Task CreateWidget()
     {
-        await CopyDisplayModelToModel();
-
         try
         {
+            await CopyDisplayModelToModel();
             await WidgetHandler.CreateWidgetAsync(WidgetModel, true);
             Snackbar.Add($"Widget {WidgetModel.Name} successfully created.", Severity.Success);
             NavigationManager.NavigateTo("/widgets/index");

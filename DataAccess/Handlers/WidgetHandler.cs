@@ -25,7 +25,9 @@ public class WidgetHandler : IWidgetHandler
     }
 
     public async Task<WidgetModel> GetWidgetAsync(int widgetId) =>
-        await _context.Widgets.SingleOrDefaultAsync(w => w.WidgetId == widgetId);
+        await _context.Widgets
+            .Include(w => w.ColourJustification)
+            .SingleOrDefaultAsync(w => w.WidgetId == widgetId);
 
     public async Task<List<WidgetModel>> GetWidgetsAsync() =>
         await _context.Widgets

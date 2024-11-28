@@ -24,13 +24,11 @@ public partial class Create
         });
     }
 
-
     private async Task CreateManufacturer()
     {
-        CopyDisplayModelToModel();
-
         try
         {
+            CopyDisplayModelToModel();
             await ManufacturerHandler.CreateManufacturerAsync(ManufacturerModel, true);
             Snackbar.Add($"Manufacturer {ManufacturerModel.Name} successfully created.", Severity.Success);
             NavigationManager.NavigateTo("/manufacturers/index");

@@ -55,10 +55,9 @@ public partial class Edit
 
     private async void UpdateWidget()
     {
-        await CopyDisplayModelToModel();
-
         try
         {
+            await CopyDisplayModelToModel();
             await WidgetHandler.UpdateWidgetAsync(WidgetModel, true);
             Snackbar.Add($"Widget {WidgetModel.Name} successfully updated.", Severity.Success);
             NavigationManager.NavigateTo("/widgets/index");
