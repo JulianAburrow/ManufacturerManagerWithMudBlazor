@@ -14,6 +14,7 @@ public class SearchHandler : ISearchHandler
         manufacturersFound.AddRange(_context.Manufacturers
             .Include(m => m.Status)
             .Include(m => m.Widgets)
+            .AsNoTracking()
             .Where(m => m.Name.Contains(manufacturerSearchModel.ManufacturerName)));
 
         if (manufacturerSearchModel.ActiveStatus > 0)
@@ -39,6 +40,7 @@ public class SearchHandler : ISearchHandler
         widgetsFound.AddRange(_context.Widgets
             .Include(w => w.Manufacturer)
             .Include(w => w.Status)
+            .AsNoTracking()
             .Where(w => w.Name.Contains(widgetSearchModel.WidgetName)));
 
         if (widgetSearchModel.ActiveStatus > 0)

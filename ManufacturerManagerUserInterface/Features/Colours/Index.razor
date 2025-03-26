@@ -21,12 +21,12 @@
 }
 
 <MudTable
-    Items="@Colours"
-    SortLabel="SortBy"
-    Hover
-    RowsPerPage="10"
-    FixedHeader
-    Height="500px">
+Items="@Colours"
+SortLabel="SortBy"
+Hover
+RowsPerPage="10"
+FixedHeader
+Height="500px">
     <HeaderContent>
         <MudTh title="Sort by Name">
             <MudTableSortLabel SortBy="new Func<ColourModel, object>(x => x.Name)">
@@ -47,8 +47,11 @@
             <a class="btn btn-primary" href="/colour/view/@context.ColourId">View</a>
             &nbsp;
             <a class="btn btn-primary" href="/colour/edit/@context.ColourId">Edit</a>
-            &nbsp;
-            <a class="btn btn-danger" href="/colour/delete/@context.ColourId">Delete</a>
+            @if (!@context.Widgets.Any())
+            {
+                @:&nbsp;
+                <a class="btn btn-danger" href="/colour/delete/@context.ColourId">Delete</a>
+            }            
         </MudTd>
     </RowTemplate>
     <PagerContent>

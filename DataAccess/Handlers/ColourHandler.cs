@@ -27,11 +27,13 @@ public class ColourHandler : IColourHandler
     public async Task<ColourModel> GetColourAsync(int colourId) =>
         await _context.Colours
             .Include(c => c.Widgets)
+            .AsNoTracking()
             .SingleOrDefaultAsync(c => c.ColourId == colourId);
 
     public async Task<List<ColourModel>> GetColoursAsync() =>
         await _context.Colours
             .Include(c => c.Widgets)
+            .AsNoTracking()
             .ToListAsync();
 
     public async Task SaveChangesAsync() =>

@@ -97,7 +97,7 @@ public class ColourJustificationTests
         _manufacturerManagerContext.SaveChanges();
         colourJustificationId = ColourJustification3.ColourJustificationId;
 
-        await _colourJustificationHandler.DeleteColourJusticationAsync(colourJustificationId, true);
+        await _colourJustificationHandler.DeleteColourJustificationAsync(colourJustificationId, true);
 
         var deletedColourJustification = _manufacturerManagerContext.ColourJustifications.FirstOrDefault(c => c.ColourJustificationId == colourJustificationId);
 

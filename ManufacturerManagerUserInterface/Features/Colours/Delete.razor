@@ -11,13 +11,22 @@
 
 @if (ColourModel.Widgets.Count > 0)
 {
-    <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center">Cannot delete @ColourModel.Name as @ColourModel.Widgets.Count @(ColourModel.Widgets.Count == 1 ? "widget is" : "widgets are") this colour.</MudAlert>
+    <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center">
+        Cannot delete @ColourModel.Name as @ColourModel.Widgets.Count @(ColourModel.Widgets.Count == 1 ? "widget is" : "widgets are") this colour.
+    </MudAlert>
+    <br />
+    <a class="btn btn-primary" href="/colours/index">Cancel</a>
     return;
 }
 
-<MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center">Are you sure you want to delete colour "@ColourModel.Name"?</MudAlert>
+<MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center">
+    Are you sure you want to delete colour "@ColourModel.Name"?
+</MudAlert>
 
-@if (ColourModel.Widgets.Count == 0)
+<br />
+<br />
+
+@if (ColourModel.Widgets != null && !ColourModel.Widgets.Any())
 {
     <button class="btn btn-danger" @onclick="DeleteColour">Delete</button>
     @:&nbsp;

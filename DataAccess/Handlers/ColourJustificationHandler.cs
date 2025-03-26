@@ -14,7 +14,7 @@ public class ColourJustificationHandler : IColourJustificationHandler
             await SaveChangesAsync();
     }
 
-    public async Task DeleteColourJusticationAsync(int colourJustificationId, bool callSaveChanges)
+    public async Task DeleteColourJustificationAsync(int colourJustificationId, bool callSaveChanges)
     {
         var colourJustificationToDelete = _context.ColourJustifications.SingleOrDefault(c => c.ColourJustificationId == colourJustificationId);
         if (colourJustificationToDelete == null)

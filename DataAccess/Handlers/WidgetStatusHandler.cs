@@ -9,6 +9,8 @@ public class WidgetStatusHandler : IWidgetStatusHandler
 
     public async Task<List<WidgetStatusModel>> GetWidgetStatusesAsync()
     {
-        return await _context.WidgetStatuses.ToListAsync();
+        return await _context.WidgetStatuses
+            .AsNoTracking()
+            .ToListAsync();
     }
 }

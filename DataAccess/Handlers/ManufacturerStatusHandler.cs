@@ -9,6 +9,8 @@ public class ManufacturerStatusHandler : IManufacturerStatusHandler
 
     public async Task<List<ManufacturerStatusModel>> GetManufacturerStatusesAsync()
     {
-        return await _context.ManufacturerStatuses.ToListAsync();
+        return await _context.ManufacturerStatuses
+            .AsNoTracking()
+            .ToListAsync();
     }
 }

@@ -23,7 +23,7 @@ public partial class Delete
     {
         try
         {
-            await ColourJustificationHandler.DeleteColourJusticationAsync(ColourJustificationId, true);
+            await ColourJustificationHandler.DeleteColourJustificationAsync(ColourJustificationId, true);
             Snackbar.Add($"Colour Justification {ColourJustificationModel.Justification} successfully deleted.", Severity.Success);
             NavigationManager.NavigateTo("/colourjustifications/index");
         }

@@ -31,6 +31,7 @@ public class ManufacturerHandler : IManufacturerHandler
             .Include(m => m.Widgets)
                 .ThenInclude(w => w.Status)
             .Include(m => m.Status)
+            .AsNoTracking()
             .SingleOrDefaultAsync(m => m.ManufacturerId == manufacturerId);
 
     public async Task<List<ManufacturerModel>> GetManufacturersAsync() =>
@@ -38,6 +39,7 @@ public class ManufacturerHandler : IManufacturerHandler
         .Include(m => m.Widgets)
         .Include(m => m.Status)
         .OrderBy(m => m.Name)
+        .AsNoTracking()
         .ToListAsync();
 
     public async Task SaveChangesAsync()
