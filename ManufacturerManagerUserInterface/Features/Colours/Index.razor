@@ -5,7 +5,7 @@
 
 @if (Colours == null)
 {
-    <MudAlert Severity="Severity.Info" ContentAlignment="HorizontalAlignment.Center">Loading Colours...</MudAlert>
+    <LoadingMessageComponent ValueToShow="@ColourPlural" />
     return;
 }
 

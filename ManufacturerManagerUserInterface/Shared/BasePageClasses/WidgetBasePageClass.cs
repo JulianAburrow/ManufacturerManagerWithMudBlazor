@@ -30,6 +30,10 @@ public abstract class WidgetBasePageClass : BasePageClass
 
     protected string FileName = string.Empty;
 
+    protected string Widget = "Widget";
+
+    protected string WidgetPlural = "Widgets";
+
     protected async Task CopyDisplayModelToModel()
     {
         WidgetModel.Name = WidgetDisplayModel.Name;
@@ -49,6 +53,10 @@ public abstract class WidgetBasePageClass : BasePageClass
         {
             var imageMemoryStream = await ToMemoryStreamAsync(WidgetImage.OpenReadStream());
             WidgetModel.WidgetImage = imageMemoryStream.ToArray();
+        }
+        else
+        {
+            WidgetModel.WidgetImage = null;
         }
     }
 

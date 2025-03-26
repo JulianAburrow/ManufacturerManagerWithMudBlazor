@@ -5,7 +5,7 @@
 
 @if (ColourModel == null || ColourModel.Widgets == null)
 {
-    <h3>Loading Colour...</h3>
+    <LoadingMessageComponent ValueToShow="@Colour" />
     return;
 }
 

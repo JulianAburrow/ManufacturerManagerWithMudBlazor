@@ -5,7 +5,7 @@
 
 @if  (ManufacturerDisplayModel == null || ManufacturerStatuses == null)
 {
-    <MudAlert Severity="Severity.Info" ContentAlignment="HorizontalAlignment.Center">Loading Manufacturer</MudAlert>
+    <LoadingMessageComponent ValueToShow="@Manufacturer" />
     return;
 }
 

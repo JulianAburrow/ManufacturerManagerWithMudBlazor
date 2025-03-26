@@ -37,6 +37,7 @@ public class ManufacturerHandler : IManufacturerHandler
         await _context.Manufacturers
         .Include(m => m.Widgets)
         .Include(m => m.Status)
+        .OrderBy(m => m.Name)
         .ToListAsync();
 
     public async Task SaveChangesAsync()

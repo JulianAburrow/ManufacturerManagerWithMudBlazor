@@ -5,7 +5,7 @@
 
 @if (ColourJustificationModel == null)
 {
-    <MudAlert Severity="Severity.Info" ContentAlignment="HorizontalAlignment.Center">Loading Colour Justification...</MudAlert>
+    <LoadingMessageComponent ValueToShow="@ColourJustification" />
     return;
 }
 
@@ -20,7 +20,7 @@
                 &nbsp;
                 <a class="btn btn-danger" href="/colourjustification/delete/@ColourJustificationModel.ColourJustificationId">Delete</a>
                 &nbsp;
-                <a class="btn btn-primary" href="/colourjustification/index">Cancel</a>
+                <a class="btn btn-primary" href="/colourjustifications/index">Cancel</a>
             </MudCardActions>
         </MudCard>
     </MudItem>"

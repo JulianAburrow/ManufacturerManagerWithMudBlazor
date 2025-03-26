@@ -5,7 +5,7 @@
 
 @if (ColourDisplayModel == null)
 {
-    <MudAlert Severity="Severity.Info" ContentAlignment="HorizontalAlignment.Center">Loading Colour...</MudAlert>
+    <LoadingMessageComponent ValueToShow="@Colour" />
     return;
 }
 

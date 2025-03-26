@@ -7,7 +7,7 @@
     WidgetModel.Manufacturer == null ||
     WidgetModel.Status == null)
 {
-    <MudAlert Severity="Severity.Info" ContentAlignment="HorizontalAlignment.Center">Loading Widget</MudAlert>
+    <LoadingMessageComponent ValueToShow="@Widget" />
     return;
 }
 
@@ -26,6 +26,7 @@
                 @if (WidgetModel.WidgetImage != null)
                 {
                     <MudField Label="Image" />
+                    <br />
                     <MudImage src="@(WidgetModel.WidgetImage != null
                         ? ImageHelper.ImageSource(WidgetModel.WidgetImage)
                         : ""

@@ -21,6 +21,8 @@ public class BasePageClass : ComponentBase
 
     protected string DownloadFile = "downloadFile";
 
+    protected string Values = "Values";
+
     protected BreadcrumbItem GetHomeBreadcrumbItem(bool isDisabled = false)
     {
         return new ("Home", "#", isDisabled, icon: Icons.Material.Filled.Home);

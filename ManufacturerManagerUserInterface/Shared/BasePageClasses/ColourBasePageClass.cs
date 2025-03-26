@@ -10,6 +10,10 @@ public class ColourBasePageClass : BasePageClass
 
     protected ColourDisplayModel ColourDisplayModel { get; set; } = new();
 
+    protected string Colour = "Colour";
+
+    protected string ColourPlural = "Colours";
+
     protected BreadcrumbItem GetColourHomeBreadcrumbItem(bool isDisabled = false)
     {
         return new ("Colours", "/colours/index", isDisabled);

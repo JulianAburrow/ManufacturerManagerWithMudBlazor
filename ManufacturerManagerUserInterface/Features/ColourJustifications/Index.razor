@@ -5,7 +5,7 @@
 
 @if (ColourJustifications == null)
 {
-    <MudAlert Severity="Severity.Info" ContentAlignment="HorizontalAlignment.Center">Loading Colour Justifications...</MudAlert>
+    <LoadingMessageComponent ValueToShow="@ColourJustificationPlural" />
     return;
 }
 

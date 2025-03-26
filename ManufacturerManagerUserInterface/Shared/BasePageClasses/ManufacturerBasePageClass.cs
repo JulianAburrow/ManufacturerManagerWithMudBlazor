@@ -14,6 +14,10 @@ public abstract class ManufacturerBasePageClass : BasePageClass
 
     public required List<ManufacturerStatusModel> ManufacturerStatuses { get; set; }
 
+    protected string Manufacturer = "Manufacturer";
+
+    protected string ManufacturerPlural = "Manufacturers";
+
     protected void CopyDisplayModelToModel()
     {
         ManufacturerModel.Name = ManufacturerDisplayModel.Name;

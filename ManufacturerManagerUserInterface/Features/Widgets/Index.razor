@@ -5,7 +5,7 @@
 
 @if (Widgets == null)
 {
-    <MudAlert Severity="Severity.Info" ContentAlignment="HorizontalAlignment.Center">Loading Widgets</MudAlert>
+    <LoadingMessageComponent ValueToShow="@WidgetPlural" />
     return;
 }
 
