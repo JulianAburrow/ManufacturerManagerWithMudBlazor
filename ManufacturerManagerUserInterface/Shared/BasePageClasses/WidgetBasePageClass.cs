@@ -56,7 +56,7 @@ public abstract class WidgetBasePageClass : BasePageClass
         }
         else
         {
-            WidgetModel.WidgetImage = null;
+            WidgetModel.WidgetImage = WidgetDisplayModel.WidgetImage;
         }
     }
 
