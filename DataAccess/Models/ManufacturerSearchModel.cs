@@ -2,7 +2,7 @@
 
 public class ManufacturerSearchModel
 {
-    public string ManufacturerName { get; set; } = string.Empty;
+    public string ManufacturerName { get; set; } = default!;
 
     public int ActiveStatus { get; set; }
 }

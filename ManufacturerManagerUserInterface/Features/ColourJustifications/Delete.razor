@@ -3,30 +3,24 @@
 
 <PageTitle>Delete Colour Justification</PageTitle>
 
-@if (ColourJustificationModel == null)
+@if (ColourJustificationModel == null || ColourJustificationModel.Widgets == null)
 {
     <LoadingMessageComponent ValueToShow="@ColourJustification" />
     return;
 }
 
-@if (ColourJustificationModel.Widgets != null && ColourJustificationModel.Widgets.Any())
+@if (!OkToDelete)
 {
-    <MudAlert Severity="Severity.Error" ContentAlignment="HorizontalAlignment.Center">
-        Cannot delete colour @ColourJustificationModel.Justification as @ColourJustificationModel.Widgets.Count @(ColourJustificationModel.Widgets.Count == 1 ? "Widget" : "Widgets") have this colour justification
-    </MudAlert>
-    <br />
-    <a href="/colourjustifications/index" class="btn btn-primary">Cancel</a>
+    <CannotDeleteComponent ObjectType="@ColourJustification" ObjectName="@ColourJustificationModel.Justification" WidgetCount="@ColourJustificationModel.Widgets.Count" />
     return;
 }
 
-<MudAlert Severity="Severity.Warning" ContentAlignment="HorizontalAlignment.Center">
-    Are you sure you want to delete the colour justification "@ColourJustificationModel.Justification"?
-</MudAlert>
+<ConfirmDeleteComponent ObjectType="@ColourJustification" ObjectName="@ColourJustificationModel.Justification" />
 
 <br />
 <br />
 
-@if (ColourJustificationModel.Widgets != null && !ColourJustificationModel.Widgets.Any())
+@if (OkToDelete)
 {
     <button class="btn btn-danger" @onclick="DeleteColourJustification">Delete</button>
     @:&nbsp;

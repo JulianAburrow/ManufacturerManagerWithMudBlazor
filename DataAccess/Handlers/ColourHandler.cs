@@ -33,6 +33,7 @@ public class ColourHandler : IColourHandler
     public async Task<List<ColourModel>> GetColoursAsync() =>
         await _context.Colours
             .Include(c => c.Widgets)
+            .OrderBy(c => c.Name)
             .AsNoTracking()
             .ToListAsync();
 

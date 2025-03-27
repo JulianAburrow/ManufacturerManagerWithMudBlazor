@@ -40,4 +40,6 @@ public class BasePageClass : ComponentBase
     protected string EditTextForBreadcrumb = "Edit";
 
     protected string ViewTextForBreadcrumb = "View";
+
+    protected bool OkToDelete { get; set; }
 }

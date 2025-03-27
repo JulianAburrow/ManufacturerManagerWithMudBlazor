@@ -2,7 +2,7 @@
 
 public class WidgetSearchModel
 {
-    public string WidgetName { get; set; } = string.Empty;
+    public string WidgetName { get; set; } = default!;
 
     public int ActiveStatus { get; set; }
 }

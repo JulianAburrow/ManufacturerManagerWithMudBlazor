@@ -6,7 +6,7 @@ public class SearchModel
     [Display(Name = "Search Type")]
     public int SearchType { get; set; }
 
-    public string SearchText { get; set; } = string.Empty;
+    public string SearchText { get; set; } = default!;
 
     public int ActiveStatus { get; set; }
 }

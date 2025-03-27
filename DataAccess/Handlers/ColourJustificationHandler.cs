@@ -34,6 +34,7 @@ public class ColourJustificationHandler : IColourJustificationHandler
         await _context.ColourJustifications
             .Include(c => c.Widgets)
             .AsNoTracking()
+            .OrderBy(c => c.Justification)
             .ToListAsync();
 
     public async Task SaveChangesAsync() =>

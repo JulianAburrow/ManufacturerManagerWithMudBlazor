@@ -3,5 +3,5 @@
 public partial class LoadingMessageComponent
 {
     [Parameter]
-    public string ValueToShow { get; set; } = null!;
+    public string ValueToShow { get; set; } = default!;
 }
