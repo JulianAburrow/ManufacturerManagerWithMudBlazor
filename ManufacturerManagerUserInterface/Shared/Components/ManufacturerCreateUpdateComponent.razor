@@ -7,7 +7,8 @@
         <MudCard>
             <MudCardContent>
                 <MudTextField Label="Name" @bind-Value="ManufacturerDisplayModel.Name" AutoFocus OnlyValidateIfDirty="true" />
-                <MudSelect Label="Status" @bind-Value="ManufacturerDisplayModel.StatusId">
+                <MudSelect Label="Status" @bind-Value="ManufacturerDisplayModel.StatusId"
+                    HelperText="@(ManufacturerDisplayModel.StatusId == 2 && ManufacturerDisplayModel.ManufacturerId > 0 ? "All Widgets for this manufacturer will also have their status set to 'Inactive'" : "")">
                     @foreach (var manufacturerStatus in ManufacturerStatuses)
                     {
                         <MudSelectItem T="int" Value="manufacturerStatus.StatusId">

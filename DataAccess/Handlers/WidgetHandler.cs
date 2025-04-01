@@ -26,6 +26,7 @@ public class WidgetHandler : IWidgetHandler
 
     public async Task<WidgetModel> GetWidgetAsync(int widgetId) =>
         await _context.Widgets
+            .Include(w => w.Colour)
             .Include(w => w.ColourJustification)
             .Include(w => w.Manufacturer)
             .Include(w => w.Status)
@@ -35,6 +36,7 @@ public class WidgetHandler : IWidgetHandler
     public async Task<List<WidgetModel>> GetWidgetsAsync() =>
         await _context.Widgets
         .Include(w => w.Manufacturer)
+        .Include(w => w.Colour)
         .Include(w => w.Status)
         .OrderBy(w => w.Name)
         .AsNoTracking()
@@ -49,6 +51,7 @@ public class WidgetHandler : IWidgetHandler
         if (widgetToUpdate == null)
             return;
         widgetToUpdate.Name = widget.Name;
+        widgetToUpdate.ColourId = widget.ColourId;
         widgetToUpdate.ColourJustificationId = widget.ColourJustificationId;
         widgetToUpdate.ManufacturerId = widget.ManufacturerId;
         widgetToUpdate.StatusId = widget.StatusId;

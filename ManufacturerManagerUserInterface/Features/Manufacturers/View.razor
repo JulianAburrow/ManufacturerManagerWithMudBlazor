@@ -56,14 +56,21 @@
                 Colour
             </MudTableSortLabel>
         </MudTh>
+        <MudTh title="Sort by Status">
+            <MudTableSortLabel SortBy="new Func<WidgetModel, object>(x => x.Status.StatusName)">
+                Status
+            </MudTableSortLabel>
+        </MudTh>
+        <MudTh></MudTh>
     </HeaderContent>
     <RowTemplate>
         <MudTd>@context.Name</MudTd>
-         <MudTd>@(context.Colour != null ? context.Colour.Name : "None")</MudTd>
-            <MudTd>
-                <a href="/widget/view/@context.WidgetId" class="btn btn-primary">View</a>
-                &nbsp;
-                <a href="/widget/edit/@context.WidgetId" class="btn btn-primary">Edit</a>
-            </MudTd>
+        <MudTd>@(context.Colour != null ? context.Colour.Name : "None")</MudTd>
+        <MudTd>@context.Status.StatusName</MudTd>
+        <MudTd>
+            <a href="/widget/view/@context.WidgetId" class="btn btn-primary">View</a>
+            &nbsp;
+            <a href="/widget/edit/@context.WidgetId" class="btn btn-primary">Edit</a>
+        </MudTd>
     </RowTemplate>
 </MudTable>
