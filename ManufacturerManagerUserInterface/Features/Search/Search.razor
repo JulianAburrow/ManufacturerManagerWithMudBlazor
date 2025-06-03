@@ -11,13 +11,13 @@
         <MudItem sm="7">
             <MudCard>
                 <MudCardContent>
-                    <MudSelect T="int" Label="Search Type" @bind-Value="SearchModel.SearchType">
+                    <MudSelect id="ddlSearchType" T="int" Label="Search Type" @bind-Value="SearchModel.SearchType">
                         <MudSelectItem T="int" Value="@((int)SharedValues.ObjectTypes.PleaseSelect)">@SharedValues.PleaseSelectText</MudSelectItem>
                         <MudSelectItem T="int" Value="@((int)SharedValues.ObjectTypes.Manufacturer)">@SharedValues.ObjectTypes.Manufacturer</MudSelectItem>
                         <MudSelectItem T="int" Value="@((int)SharedValues.ObjectTypes.Widget)">@SharedValues.ObjectTypes.Widget</MudSelectItem>
                     </MudSelect>
-                    <MudTextField Label="Name" @bind-Value="SearchModel.SearchText" />
-                    <MudSelect T="int" label="Status" @bind-value="SearchModel.ActiveStatus">
+                    <MudTextField id="txtSearchTerm" Label="Name" @bind-Value="SearchModel.SearchText" />
+                    <MudSelect id="ddlSearchStatus" T="int" label="Status" @bind-value="SearchModel.ActiveStatus">
                         <MudSelectItem T="int" Value="@((int)SharedValues.Statuses.Any)">@SharedValues.Statuses.Any</MudSelectItem>
                         <MudSelectItem T="int" Value="@((int)SharedValues.Statuses.Active)">@SharedValues.Statuses.Active</MudSelectItem>
                         <MudSelectItem T="int" Value="@((int)SharedValues.Statuses.Inactive)">@SharedValues.Statuses.Inactive</MudSelectItem>

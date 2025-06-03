@@ -21,8 +21,8 @@
         <MudItem sm="7">
             <MudCard>
                 <MudCardContent>
-                    <MudTextField Label="Name" @bind-Value="WidgetDisplayModel.Name" />
-                    <MudSelect Label="Manufacturer" @bind-Value="WidgetDisplayModel.ManufacturerId">
+                    <MudTextField id="txtWidgetName" Label="Name" @bind-Value="WidgetDisplayModel.Name" />
+                    <MudSelect id="ddlManufactureName" Label="Manufacturer" @bind-Value="WidgetDisplayModel.ManufacturerId">
                         @foreach (var manufacturer in Manufacturers)
                         {
                             <MudSelectItem T="int" Value="manufacturer.ManufacturerId">
@@ -30,7 +30,7 @@
                             </MudSelectItem>
                         }
                     </MudSelect>
-                    <MudSelect Label="Colour" @bind-Value="WidgetDisplayModel.ColourId">
+                    <MudSelect id="ddlColour" Label="Colour" @bind-Value="WidgetDisplayModel.ColourId">
                         @foreach (var colour in Colours)
                         {
                             <MudSelectItem T="int?" Value="colour.ColourId">
@@ -38,7 +38,7 @@
                             </MudSelectItem>
                         }                        
                     </MudSelect>
-                    <MudSelect Label="Colour Justification" @bind-Value="WidgetDisplayModel.ColourJustificationId">
+                    <MudSelect id="ddlColourJustification" Label="Colour Justification" @bind-Value="WidgetDisplayModel.ColourJustificationId">
                         @foreach (var colourJustification in ColourJustifications)
                         {
                             <MudSelectItem T="int?" Value="colourJustification.ColourJustificationId">
@@ -46,7 +46,7 @@
                             </MudSelectItem>
                         }
                     </MudSelect>
-                    <MudSelect Label="Status" @bind-Value="WidgetDisplayModel.StatusId"
+                    <MudSelect id="ddlStatus" Label="Status" @bind-Value="WidgetDisplayModel.StatusId"
                         Disabled="ManufacturerInactive"
                         HelperText="@(ManufacturerInactive ? "Cannot activate Widget when Manufacturer is Inactive" : "")">
                         @foreach (var widgetStatus in WidgetStatuses)
@@ -56,10 +56,10 @@
                             </MudSelectItem>
                         }
                     </MudSelect>
-                    <MudTextField Label="Cost Price" @bind-Value="WidgetDisplayModel.CostPrice" />
-                    <MudTextField Label="Retail Price" @bind-Value="WidgetDisplayModel.RetailPrice" />
-                    <MudTextField Label="Stock Level" @bind-Value="WidgetDisplayModel.StockLevel" />
-                    <MudFileUpload T="IBrowserFile" FilesChanged="UploadFile" Context="FileContext">
+                    <MudTextField id="txtCostPrice" Label="Cost Price" @bind-Value="WidgetDisplayModel.CostPrice" />
+                    <MudTextField id="txtRetailPrice" Label="Retail Price" @bind-Value="WidgetDisplayModel.RetailPrice" />
+                    <MudTextField id="txtStockLevel" Label="Stock Level" @bind-Value="WidgetDisplayModel.StockLevel" />
+                    <MudFileUpload id="fuPicture" T="IBrowserFile" FilesChanged="UploadFile" Context="FileContext">
                         <ButtonTemplate>
                             <MudButton HtmlTag="label"
                                 Variant="Variant.Filled"

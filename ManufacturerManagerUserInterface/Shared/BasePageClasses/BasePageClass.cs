@@ -1,6 +1,4 @@
-﻿using Microsoft.JSInterop;
-
-namespace ManufacturerManagerUserInterface.Shared.BasePageClasses;
+﻿namespace ManufacturerManagerUserInterface.Shared.BasePageClasses;
 
 public class BasePageClass : ComponentBase
 {
