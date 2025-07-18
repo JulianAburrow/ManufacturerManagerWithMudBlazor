@@ -6,5 +6,5 @@ public class WidgetStatusModel
 
     public string StatusName { get; set; } = default!;
 
-    public ICollection<WidgetModel> Widgets { get; set; } = null;
+    public ICollection<WidgetModel> Widgets { get; set; } = null!;
 }

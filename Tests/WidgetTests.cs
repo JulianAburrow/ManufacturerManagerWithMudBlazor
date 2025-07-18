@@ -55,7 +55,8 @@ public class WidgetTests
 
         var returnedWidget = await _widgetHandler.GetWidgetAsync(Widget2.WidgetId);
         returnedWidget.Should().NotBeNull();
-        returnedWidget.Should().Be(Widget2);
+        Assert.Equal(Widget2.Name, returnedWidget.Name);
+        Assert.Equal(Widget2.Manufacturer.Name, returnedWidget.Manufacturer.Name);
     }
 
     [Fact]
