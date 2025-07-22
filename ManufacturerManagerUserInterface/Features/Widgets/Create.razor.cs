@@ -5,6 +5,12 @@ public partial class Create
     protected override async Task OnInitializedAsync()
     {
         WidgetStatuses = await WidgetStatusHandler.GetWidgetStatusesAsync();
+        WidgetStatuses.Insert(0, new()
+        {
+            StatusId = SharedValues.PleaseSelectValue,
+            StatusName = SharedValues.PleaseSelectText,
+        });
+        WidgetDisplayModel.StatusId = SharedValues.PleaseSelectValue;
         Colours = await ColourHandler.GetColoursAsync();
         ColourJustifications = await ColourJustificationHandler.GetColourJustificationsAsync();
         Manufacturers = await ManufacturerHandler.GetManufacturersAsync();
@@ -26,12 +32,6 @@ public partial class Create
             Justification = SharedValues.NoneText,
         });
         WidgetDisplayModel.ColourJustificationId = SharedValues.PleaseSelectValue;
-        WidgetStatuses.Insert(0, new()
-        {
-            StatusId = SharedValues.PleaseSelectValue,
-            StatusName = SharedValues.PleaseSelectText,
-        });
-        WidgetDisplayModel.StatusId = SharedValues.PleaseSelectValue;
 
         MainLayout.SetHeaderValue("Create Widget");
     }
