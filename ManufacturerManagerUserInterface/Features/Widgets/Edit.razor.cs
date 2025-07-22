@@ -2,11 +2,14 @@
 
 public partial class Edit
 {
-    private bool ManufacturerInactive { get; set; }
-
     protected override async Task OnInitializedAsync()
     {
         WidgetStatuses = await WidgetStatusHandler.GetWidgetStatusesAsync();
+        WidgetStatuses.Insert(0, new WidgetStatusModel
+        {
+            StatusId = SharedValues.PleaseSelectValue,
+            StatusName = SharedValues.PleaseSelectText,
+        });
         Colours = await ColourHandler.GetColoursAsync();
         Colours.Insert(0, new ColourModel
         {
@@ -38,7 +41,7 @@ public partial class Edit
         WidgetDisplayModel.RetailPrice = WidgetModel.RetailPrice;
         WidgetDisplayModel.StockLevel = WidgetModel.StockLevel;
 
-        ManufacturerInactive = WidgetModel.Manufacturer.StatusId == (int)ManufacturerStatusEnum.Inactive;
+        ManufacturerIsInactive = WidgetModel.Manufacturer.StatusId == (int)ManufacturerStatusEnum.Inactive;
 
         MainLayout.SetHeaderValue("Edit Widget");
     }

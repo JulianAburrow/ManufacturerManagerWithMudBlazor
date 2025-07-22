@@ -42,6 +42,12 @@ public class ManufacturerHandler : IManufacturerHandler
         .AsNoTracking()
         .ToListAsync();
 
+    public async Task<int> GetManufacturerStatusByManufacturerId(int manufacturerId) =>
+        await _context.Manufacturers
+            .Where(m => m.ManufacturerId == manufacturerId)
+            .Select(s => s.StatusId)
+            .SingleOrDefaultAsync();
+
     public async Task SaveChangesAsync()
     {
         await _context.SaveChangesAsync();

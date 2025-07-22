@@ -22,10 +22,15 @@
             <MudCard>
                 <MudCardContent>
                     <MudTextField id="txtWidgetName" Label="Name" @bind-Value="WidgetDisplayModel.Name" />
-                    <MudSelect id="ddlManufactureName" Label="Manufacturer" @bind-Value="WidgetDisplayModel.ManufacturerId">
+                    <MudSelect T="int"
+                               id="ddlManufacturerName"
+                               Label="Manufacturer"
+                               @bind-Value="WidgetDisplayModel.ManufacturerId"
+                               @bind-Value:after="SetWidgetStatusId"
+                               HelperText="@(ManufacturerIsInactive ? "Widget status has been set to inactive as it is not possible for an active widget to have an inactive manufacturer" : string.Empty)">
                         @foreach (var manufacturer in Manufacturers)
                         {
-                            <MudSelectItem T="int" Value="manufacturer.ManufacturerId">
+                            <MudSelectItem T="int" Value="@manufacturer.ManufacturerId">
                                 @manufacturer.Name
                             </MudSelectItem>
                         }
@@ -47,8 +52,8 @@
                         }
                     </MudSelect>
                     <MudSelect id="ddlStatus" Label="Status" @bind-Value="WidgetDisplayModel.StatusId"
-                        Disabled="ManufacturerInactive"
-                        HelperText="@(ManufacturerInactive ? "Cannot activate Widget when Manufacturer is Inactive" : "")">
+                        Disabled="ManufacturerIsInactive"
+                        HelperText="@(ManufacturerIsInactive ? "Cannot activate Widget when Manufacturer is Inactive" : "")">
                         @foreach (var widgetStatus in WidgetStatuses)
                         {
                             <MudSelectItem T="int" Value="widgetStatus.StatusId">

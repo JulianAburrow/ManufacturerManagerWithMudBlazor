@@ -34,6 +34,8 @@ public abstract class WidgetBasePageClass : BasePageClass
 
     protected string WidgetPlural = "Widgets";
 
+    protected bool ManufacturerIsInactive;
+
     protected async Task CopyDisplayModelToModel()
     {
         WidgetModel.Name = WidgetDisplayModel.Name;
@@ -96,5 +98,20 @@ public abstract class WidgetBasePageClass : BasePageClass
     protected BreadcrumbItem GetWidgetHomeBreadcrumbItem(bool isDisabled = false)
     {
         return new BreadcrumbItem("Widgets", "/widgets/index", isDisabled);
+    }
+
+    protected async Task SetWidgetStatusId()
+    {
+        if (WidgetDisplayModel.ManufacturerId == SharedValues.PleaseSelectValue)
+        {
+            WidgetDisplayModel.StatusId = SharedValues.PleaseSelectValue;
+            ManufacturerIsInactive = false;
+            return;
+        }
+        var manufacturerStatusId = await ManufacturerHandler.GetManufacturerStatusByManufacturerId(WidgetDisplayModel.ManufacturerId);
+        ManufacturerIsInactive = manufacturerStatusId == (int)ManufacturerStatusEnum.Inactive;
+        WidgetDisplayModel.StatusId = ManufacturerIsInactive
+            ? (int)WidgetStatusEnum.Inactive
+            : SharedValues.PleaseSelectValue;
     }
 }
